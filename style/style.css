@@ -80,11 +80,6 @@ body {
 
 .offcanvas-body {
     background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
 }
 
 .offcanvas-header .btn-close {
