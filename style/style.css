@@ -89,8 +89,6 @@ body {
 
 .offcanvas-header .btn-close {
     position: absolute;
-    align-items: center;
-    justify-content: center;
     top: auto;  /* Remove the top positioning */
     bottom: 10px;  /* Position from the bottom */
     right: 50%;  /* Center horizontally */
