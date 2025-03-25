@@ -1,0 +1,27 @@
+.privacy-policy {
+    padding: 4rem 1rem;
+    line-height: 2;
+    font-size: 1rem;
+    color: #dfdfdf;
+  }
+  
+  .privacy-policy h1 {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    font-size: 3rem;
+  }
+
+  .privacy-policy h2 {
+    margin-top: 2rem;
+    color: #ffffff;
+  }
+  
+  .privacy-policy p {
+    margin-bottom: 1rem;
+  }
+  
+  .privacy-policy ul {
+    list-style: disc;
+    padding-left: 2rem;
+  }
