@@ -1,0 +1,87 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+      font-family: 'Arboria-Black', sans-serif;
+      color: #fff;
+  
+      /* background: #000; */
+      background: linear-gradient(0deg, rgba(82,198,210,1) 0%, rgba(0,0,20,1) 100%);
+      /* background: linear-gradient(0deg, rgba(0,0,20,1) 0%, rgba(82,198,210,1) 100%); */
+  
+  }
+  
+  
+  .menu-title{
+      font-size: 400%;
+  }
+  
+  
+  .price-text {
+      font-size: 150%;
+  }
+  
+  .ingredients {
+      font-size: 100%;
+  }
+  
+  a {
+      text-decoration: none;
+  }
+  
+  .arrow {
+      margin-top: 50%;
+  }
+  
+  
+  .logo-image {
+      width: 25%;
+  }
+  
+  .image-container {
+      text-align: center;
+  }
+  
+  ul {
+      list-style-type: none;
+  }
+  
+  .menu-selector {
+      width: 75%;
+  }
+  
+  .item-title {
+      margin-left: 5%;
+  }
+  
+  .footer {
+      margin-bottom: 2%;
+  
+  }
+  
+  .row {
+      display: block;
+      justify-content: center;
+  }
+  
+  .social-logos {
+      width: 50px;
+      height: 50px;
+  }
+  
+  .copyright {
+      font-size: 80%;
+      color: white;
+  }
+  
+  @media only screen and (min-width: 992px) {
+    /* For desktop */
+      .menu-selector {
+          width: 50%;
+      }
+  
+      .logo-image {
+          width: 15%;
+      }
+  }

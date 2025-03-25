@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos Corporativos – Nalu Beach Club</title>
+  <meta name="description" content="Host your corporate events in the vibrant atmosphere of Amazónico London">
+  <link rel="stylesheet" href="../../src/styles/style.css">
+  <link rel="stylesheet" href="../../src/styles/corporate-events.css">
+  <link rel="preload" href="https://ext.same-assets.com/2529091309/380157087.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://ext.same-assets.com/4036669247/1349380707.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("JWO5kv8FDfdLZAVzb"); // substitui com o teu
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header/Navigation -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="../../index.html">
+            <img src="../../images/nalulogowhite.webp" alt="Nalu Logo">
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="../menu/">Menu</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="../corporate/">Corporate</a></li>
+            <li><a href="#">All Inclusive</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="reservation-button">
+          <a href="#" class="btn-reservation">Reservations</a>
+        </div>
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Corporate Events Hero Section -->
+    <section class="corporate-hero">
+      <div class="corporate-hero-image">
+        <img src="https://ext.same-assets.com/2115706703/236022085.jpeg" alt="Amazónico corporate events space">
+      </div>
+      <div class="corporate-hero-content">
+        <h1>Corporate Events</h1>
+        <p>Transform your business gatherings into extraordinary experiences in the heart of the Amazonian jungle</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Introduction Section -->
+      <section class="corporate-intro">
+        <div class="container">
+          <h2 class="anim-fade-in">Elevate Your Corporate Experience</h2>
+          <p class="anim-fade-in">
+            From executive lunches and team-building dinners to product launches and client entertaining, Amazónico offers a unique setting that combines exceptional cuisine with an immersive atmosphere—creating the perfect backdrop for your corporate events.
+          </p>
+          <div class="corporate-buttons anim-slide-up">
+            <a href="#" class="btn" id="explore-venues-btn">Virtual Tour</a>
+            <a href="#enquiry-form" class="btn">Make an Enquiry</a>
+          </div>
+          <div id="iframe-container" class="responsive-iframe-wrapper" style="display: none;"></div>
+        </div>
+      </section>
+
+      <!-- Corporate Venues Section -->
+      <section id="venues" class="corporate-venues">
+        <div class="container">
+          <div class="venue-item anim-fade-in">
+            <div class="venue-image">
+              <img src="https://ext.same-assets.com/3559319753/427156030.jpeg" alt="Main Dining Room">
+            </div>
+            <div class="venue-content">
+              <h3>Nalu Beach Club</h3>
+              <p>Our outdoor space offers a relaxed beach vibe with a touch of style, perfect for fun and memorable events by the sea. It can host up to 100 guests for seated meals or 200 for standing parties, making it a great spot for group dinners, company events, or special celebrations.</p>
+              <ul class="venue-details">
+                <li><strong>Capacity:</strong> 100 seated, 200 standing</li>
+                <li><strong>Features:</strong> Full F&B, AV equipment available, customizable layouts</li>
+                <li><strong>Best for:</strong> Corporate events, holiday parties, product launches</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="venue-item anim-fade-in">
+            <div class="venue-content">
+              <h3>OCTO</h3>
+              <p>Our elegant interior area offers an intimate setting with plush seating and a more relaxed atmosphere. Ideal for networking events, informal meetings or pre-dinner receptions.</p>
+              <ul class="venue-details">
+                <li><strong>Capacity:</strong> 50 seated, 100 standing</li>
+                <li><strong>Features:</strong> Private bar, flexible seating arrangements, ambient lighting</li>
+                <li><strong>Best for:</strong> Networking events, casual team gatherings, cocktail receptions</li>
+              </ul>
+            </div>
+            <div class="venue-image">
+              <img src="https://ext.same-assets.com/951609016/3452966408.jpeg" alt="The Lounge">
+            </div>
+          </div>
+      </section>
+
+      <!-- Availability Section 
+      <section class="calendar-section">
+        <div class="container">
+          <h2 class="anim-fade-in">Disponibilidade</h2>
+          <p class="anim-fade-in">Verifique a disponibilidade dos nossos espaços para eventos corporativos e faça uma consulta diretamente através do nosso calendário interativo. Selecione uma data para ver quais espaços estão disponíveis.</p> --> 
+
+          <!--<div id="corporate-calendar" class="anim-slide-up"> -->
+            <!-- O calendário será renderizado aqui pelo JavaScript -->
+          <!-- </div>
+        </div>
+      </section> -->
+
+      <!-- Enquiry Form Section -->
+      <section id="enquiry-form" class="enquiry-section">
+        <div class="container">
+          <h2 class="anim-fade-in">Make an Enquiry</h2>
+          <p class="anim-fade-in">Complete the form below and our dedicated events team will be in touch to discuss your requirements in detail.</p>
+
+          <form id="corporate-form" class="corporate-form anim-slide-up">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Contact Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event_type">Event Type</label>
+                <select id="event_type" name="event_type" required>
+                  <option value="">Select</option>
+                  <option value="lunch">Corporate Lunch</option>
+                  <option value="dinner">Corporate Dinner</option>
+                  <option value="reception">Drinks Reception</option>
+                  <option value="conference">Conference/Meeting</option>
+                  <option value="product-launch">Product Launch</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <input type="number" id="guests" name="guests" min="1" max="200" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="budget">Budget per Person (€)</label>
+                <input type="number" id="budget" name="budget">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="requirements">Additional Requirements</label>
+              <textarea id="requirements" name="requirements" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="terms" required>
+                I agree to the privacy policy and terms and conditions
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-full">Submit Enquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+  
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-intro">
+            <h4 class="anim-slide-left">Nalu Beach Club</h4>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-column anim-slide-left">
+              <h5>Newsletter</h5>
+              <!-- Newsletter Form would go here -->
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Location</h5>
+              <ul>
+                <li><a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9">Av. da República, Nazaré</a></li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-left">
+              <h5>Timetable</h5>
+              <ul>
+                <li>Temporarily closed</li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Contacts</h5>
+              <ul>
+                <li><a href="tel:+351915159595">+351 915 159 595</a></li>
+                <li><a href="malito:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 Copyright: nalubeachclub.com</p>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal">
+      <div class="booking-modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>Book a table</h3>
+        <p>Reservations can be booked up to 60 days in advance. Last reservation at 11pm and 10pm on Sundays. Children under 10 years old will not be permitted in the restaurant for any bookings after 7:00pm.</p>
+
+        <form id="reservation-form" class="reservation-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-name">Name</label>
+              <input type="text" id="res-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="res-email">Email</label>
+              <input type="email" id="res-email" name="email" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-phone">Phone</label>
+              <input type="tel" id="res-phone" name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="res-guests">Number of Guests</label>
+              <select id="res-guests" name="guests" required>
+                <option value="">Select</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 People</option>
+                <option value="3">3 People</option>
+                <option value="4">4 People</option>
+                <option value="5">5 People</option>
+                <option value="6">6 People</option>
+                <option value="7+">7+ People</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-date">Date</label>
+              <input type="date" id="res-date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label for="res-time">Time</label>
+              <select id="res-time" name="time" required>
+                <option value="">Select</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="res-message">Special Requests</label>
+            <textarea id="res-message" name="message" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="terms" required>
+              I agree to the privacy policy and terms and conditions
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-full">Reserve Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../../src/scripts/main.js"></script>
+  <script type="module" src="../../src/scripts/reservation.js"></script>
+  <script type="module" src="../../src/scripts/corporate-calendar.js"></script>
+
+    <!-- COLOCA ISTO MESMO ANTES DO  -->
+  <div id="success-modal" class="custom-modal">
+    <div class="modal-content">
+      <p>We'll be in touch soon!</p>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+  </body>
+
+  </html>

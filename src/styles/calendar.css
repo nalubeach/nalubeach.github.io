@@ -1,0 +1,259 @@
+/* Estilos para o calendário interativo */
+
+.calendar-section {
+  padding: 5rem 0;
+  background-color: #f9f9f9;
+}
+
+.calendar-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #112113;
+}
+
+.calendar-section p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.calendar-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Cabeçalho do calendário */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: #0a2211;
+  color: #fff;
+}
+
+.calendar-month-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+.calendar-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.calendar-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dias da semana */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.calendar-weekday {
+  padding: 1rem 0;
+  text-align: center;
+  font-family: 'Gotham Book', sans-serif;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Dias do mês */
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background-color: #fff;
+}
+
+.calendar-day {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.calendar-day:hover:not(.prev-month-day):not(.next-month-day):not(.unavailable):not(.past) {
+  background-color: #f0f0f0;
+}
+
+.calendar-day.prev-month-day,
+.calendar-day.next-month-day {
+  color: #ccc;
+  cursor: default;
+}
+
+.calendar-day.today {
+  background-color: #e8f4ea;
+  font-weight: bold;
+}
+
+.calendar-day.available {
+  cursor: pointer;
+}
+
+.calendar-day.available::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #0a2211;
+  border-radius: 50%;
+}
+
+.calendar-day.unavailable {
+  color: #999;
+  cursor: default;
+}
+
+.calendar-day.past {
+  color: #ccc;
+  cursor: default;
+}
+
+.calendar-day.weekend {
+  color: #666;
+}
+
+.calendar-day.selected {
+  background-color: #0a2211;
+  color: #fff;
+}
+
+/* Seção de disponibilidade */
+.calendar-availability {
+  padding: 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.calendar-availability h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #112113;
+  text-align: center;
+}
+
+.availability-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #112113;
+  text-align: center;
+}
+
+.spaces-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.space-item {
+  border-radius: 5px;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.space-item h5 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #112113;
+}
+
+.time-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.time-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.time-slot span {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.btn-enquire {
+  padding: 0.5rem 1rem;
+  background-color: #0a2211;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-enquire:hover {
+  background-color: #1a3821;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .spaces-list {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-day {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .time-slot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .time-slot span {
+    margin-bottom: 0.5rem;
+  }
+}

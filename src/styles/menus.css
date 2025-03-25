@@ -1,0 +1,243 @@
+/* Estilos para a página de menus */
+
+/* Hero section */
+.menu-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.menu-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.menu-hero-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-hero-content {
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  max-width: 830px;
+  z-index: 1;
+}
+
+.menu-hero-content h1 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.menu-hero-content p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Menu categorias */
+.menu-categories {
+  padding: 5rem 0;
+}
+
+.menu-category {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rem;
+  gap: 3rem;
+}
+
+.menu-category:last-child {
+  margin-bottom: 0;
+}
+
+.menu-category-image,
+.menu-category-content {
+  flex: 1;
+}
+
+.menu-category-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.menu-category-content h2 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.menu-category-content p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #bdbdbd;
+}
+
+.menu-category-content .btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-category-content .btn:hover {
+  background-color: #333;
+}
+
+/* Menu especial e eventos */
+.menu-special {
+  padding: 5rem 0;
+  background-color: #f8f8f8;
+}
+
+.menu-special h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #333;
+}
+
+.special-events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.special-event {
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  background-color: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.special-event:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.special-event img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.special-event h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin: 1.5rem 1.5rem 1rem;
+  color: #333;
+}
+
+.special-event p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 1.5rem 1.5rem;
+  color: #666;
+}
+
+.special-event .btn-small {
+  display: inline-block;
+  margin: 0 1.5rem 1.5rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.special-event .btn-small:hover {
+  background-color: #333;
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+  .menu-category {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .menu-category:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .menu-category-image,
+  .menu-category-content {
+    width: 100%;
+  }
+
+  .menu-hero-content h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-hero {
+    height: 50vh;
+  }
+
+  .menu-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .menu-hero-content p {
+    font-size: 1rem;
+  }
+
+  .menu-category-content h2 {
+    font-size: 2rem;
+  }
+
+  .special-events {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .special-event {
+    max-width: 100%;
+  }
+}

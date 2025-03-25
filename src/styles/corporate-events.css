@@ -1,0 +1,483 @@
+/* Importando estilos do calendário */
+@import 'calendar.css';
+
+/* Estilos para a página de eventos corporativos */
+
+/* Hero section */
+.corporate-hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.corporate-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.corporate-hero-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(9, 32, 16, 0.7); /* Verde escuro com opacidade para manter o tema do site */
+}
+
+.corporate-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.corporate-hero-content {
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+  z-index: 1;
+}
+
+.corporate-hero-content h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.corporate-hero-content p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Seção de introdução */
+.corporate-intro {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.corporate-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #112113;
+  margin-bottom: 1.5rem;
+}
+
+.corporate-intro p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
+.corporate-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.corporate-buttons .btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #0a2211;
+  color: #fff;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.corporate-buttons .btn:hover {
+  background-color: #1a3821;
+}
+
+/* Seção de locais para eventos */
+.corporate-venues {
+  padding: 5rem 0;
+  background-color: #f9f9f9;
+}
+
+.venue-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5rem;
+  gap: 4rem;
+}
+
+.venue-item:last-child {
+  margin-bottom: 0;
+}
+
+.venue-image,
+.venue-content {
+  flex: 1;
+}
+
+.venue-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.venue-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: #112113;
+}
+
+.venue-content p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.venue-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Gotham Book', sans-serif;
+}
+
+.venue-details li {
+  margin-bottom: 0.8rem;
+  color: #555;
+}
+
+.venue-details strong {
+  color: #112113;
+}
+
+/* Seção de pacotes */
+.corporate-packages {
+  padding: 5rem 0;
+  background-color: #0a2211;
+  color: #fff;
+}
+
+.corporate-packages h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.package {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 5px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.package:hover {
+  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.package h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.package p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.package .price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.package ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.package li {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  padding-left: 1.2rem;
+  position: relative;
+  opacity: 0.8;
+}
+
+.package li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #fff;
+}
+
+/* Seção de culinária */
+.corporate-food {
+  padding: 5rem 0;
+}
+
+.corporate-food h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #112113;
+}
+
+.corporate-food p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.food-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.food-item {
+  width: 300px;
+  overflow: hidden;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.food-item:hover {
+  transform: translateY(-5px);
+}
+
+.food-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.food-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+  color: #112113;
+  text-align: center;
+}
+
+/* Seção de depoimentos */
+.testimonials {
+  padding: 5rem 0;
+  background-color: #f9f9f9;
+}
+
+.testimonials h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  color: #112113;
+}
+
+.testimonial-slider {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  text-align: center;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonial p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.testimonial cite {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 0.9rem;
+  color: #112113;
+  font-style: normal;
+}
+
+/* Seção de formulário */
+.enquiry-section {
+  padding: 5rem 0;
+}
+
+.enquiry-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #112113;
+}
+
+.enquiry-section p {
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.corporate-form {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Gotham Book', sans-serif;
+}
+
+.corporate-form .form-row {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.corporate-form .form-group {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.corporate-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.corporate-form input,
+.corporate-form select,
+.corporate-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1rem;
+}
+
+.corporate-form textarea {
+  resize: vertical;
+}
+
+.corporate-form .checkbox-label {
+  display: flex;
+  align-items: flex-start;
+}
+
+.corporate-form .checkbox-label input {
+  width: auto;
+  margin-right: 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.corporate-form .btn-full {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #0a2211;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  font-family: 'Gotham Book', sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.corporate-form .btn-full:hover {
+  background-color: #1a3821;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .corporate-hero-content h1 {
+    font-size: 4rem;
+  }
+
+  .venue-item {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .venue-item:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .venue-image, .venue-content {
+    width: 100%;
+  }
+
+  .corporate-form .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .corporate-hero {
+    height: 60vh;
+  }
+
+  .corporate-hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .corporate-hero-content p {
+    font-size: 1rem;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .food-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .corporate-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
