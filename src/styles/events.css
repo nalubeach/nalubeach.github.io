@@ -1,0 +1,320 @@
+/* Events page specific styles */
+
+/* Hero section */
+.events-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: url('https://ext.same-assets.com/2983688553/3934609866.webp') no-repeat center center/cover;
+  }
+  
+  .events-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .events-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .events-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .events-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  
+  /* Section titles */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: -15px;
+    left: 0;
+  }
+  
+  .section-description {
+    margin-bottom: 40px;
+    max-width: 800px;
+  }
+  
+  /* Events list */
+  .events-list {
+    padding: 60px 0;
+  }
+  
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+  }
+  
+  .event-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .event-image {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  
+  .event-card:hover .event-image img {
+    transform: scale(1.05);
+  }
+  
+  .event-date {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    line-height: 1;
+  }
+  
+  .event-date .day {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+  
+  .event-date .month {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .event-date .weekday {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 5px 0;
+  }
+  
+  .event-date .day,
+  .event-date .month,
+  .event-date .weekday {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .event-details {
+    padding: 20px;
+  }
+  
+  .event-details h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #2c7079;;
+  }
+  
+  .event-description {
+    margin-bottom: 15px;
+    color: #666;
+  }
+  
+  .event-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+  }
+   
+  
+  
+  /* Event booking */
+  .event-booking {
+    padding: 80px 0;
+    background: url('https://ext.same-assets.com/2983688553/3337660642.webp') no-repeat center center/cover;
+    position: relative;
+    color: white;
+    text-align: center;
+  }
+  
+  .event-booking::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .booking-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .event-booking h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .event-booking p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+  }
+  
+  .event-booking .btn-reservation {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .event-booking .btn-reservation:hover {
+    background-color: var(--btn-hover);
+  }
+  
+  /* Poster lightbox */
+  .poster-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .poster-lightbox.active {
+    display: flex;
+  }
+  
+  .poster-lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .poster-lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .poster-full {
+    max-width: 100%;
+    max-height: 80vh;
+  }
+  
+  .poster-lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .featured-event {
+      grid-template-columns: 1fr;
+    }
+  
+    .featured-event-image {
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .events-hero {
+      height: 50vh;
+    }
+  
+    .events-hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .events-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .event-card {
+      max-width: 450px;
+      margin: 0 auto;
+    }
+  
+    .poster-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .events-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .events-hero p {
+      font-size: 1rem;
+    }
+  
+    .section-title {
+      font-size: 1.7rem;
+    }
+  
+    .featured-event-content {
+      padding: 25px;
+    }
+  
+    .poster-gallery {
+      grid-template-columns: 1fr;
+    }
+  }
+  
