@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
 
 // === POPUP DE IMAGEM (só 1 vez por sessão) ===
-if (popupImage && !sessionStorage.getItem('popupShown')) {
+if (popupImage && !localStorage.getItem('popupShown')) {
   setTimeout(() => {
     popupImage.classList.add('active');
-    sessionStorage.setItem('popupShown', 'true');
+    localStorage.setItem('popupShown', 'true');
   }, 2000);
 }
 
