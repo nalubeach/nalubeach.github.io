@@ -11,66 +11,56 @@
     }
 
     .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 9999;
-    }
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+  }
 
+  .popup img {
+    max-width: 80%;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .popup button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .popup button:hover {
+    background-color: #ddd;
+  }
+
+  @media (max-width: 1000px) {
     .popup img {
-      max-width: 80%;
-      max-height: 80vh;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      max-width: 90%;
+      max-height: 70vh;
     }
 
     .popup button {
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 16px;
-      font-weight: bold;
-      background-color: #ffffff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
+      margin-top: 60px;
+      padding: 25px 25px;
+      font-size: 25px;
     }
-
-    .popup button:hover {
-      background-color: #ddd;
-    }
-
-    @media (max-width: 1000px) {
-      .popup button {
-      margin-top: 70px;
-      padding: 20px 20px;
-      font-size: 30px;
-      font-weight: bold;
-      background-color: #ffffff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .popup img {
-      max-width: 80%;
-      max-height: 80vh;
-      justify-content: center;
-      align-items: center;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    }
-    }
+  }
   </style>
 </head>
 <body>
@@ -93,7 +83,7 @@
 
   setTimeout(() => {
     redirectNow();
-  }, 5000); // Redireciona após 5 segundos
+  }, 50000); // Redireciona após 5 segundos
 </script>
 
 </body>
