@@ -1,14 +1,18 @@
 {
-  "name": "amazonico-clone",
+  "name": "Nalu",
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://nalubeach.github.io/nalubeach.github.io",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build --outDir build",
-    "preview": "vite preview"
+    "build": "vite build --outDir dist",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^6.0.5"
   }
 }
