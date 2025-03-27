@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
-  base: '/nalubeach.github.io/',
+  base: './', // <- Adiciona isto
   build: {
     outDir: 'build',
     rollupOptions: {
