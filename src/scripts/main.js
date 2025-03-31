@@ -118,46 +118,53 @@ window.addEventListener('scroll', function() {
 
 
 const exploreBtn = document.getElementById("explore-venues-btn");
+
 if (exploreBtn) {
   exploreBtn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    const container = document.getElementById("iframe-container");
-    const existingIframe = document.getElementById("collab-frame-gxDW539THcyqVXwxHgu8V");
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-    if (existingIframe) {
-      container.innerHTML = "";
-      container.style.display = "none";
-      this.textContent = "Virtual Tour";
+    if (isSafari) {
+      // Abrir em nova aba no Safari
+      window.open("https://cloud.chaos.com/collaboration/n/gxDW539THcyqVXwxHgu8V/present", "_blank");
     } else {
-      container.style.display = "block";
-      this.textContent = "Close Virtual Tour";
+      // Mostrar embed nos restantes browsers
+      const container = document.getElementById("iframe-container");
+      const existingIframe = document.getElementById("collab-frame-gxDW539THcyqVXwxHgu8V");
 
-      const script = document.createElement("script");
-      script.defer = true;
-      script.type = "text/javascript";
-      script.src =
-        "data:text/javascript,document.getElementById('collab-frame-gxDW539THcyqVXwxHgu8V').addEventListener('mouseover',function(e){e.target.focus()});";
+      if (existingIframe) {
+        container.innerHTML = "";
+        container.style.display = "none";
+        this.textContent = "Virtual Tour";
+      } else {
+        container.style.display = "block";
+        this.textContent = "Close Virtual Tour";
 
-      const wrapper = document.createElement("div");
-      wrapper.className = "responsive-iframe-wrapper";
+        const script = document.createElement("script");
+        script.defer = true;
+        script.type = "text/javascript";
+        script.src = "data:text/javascript,document.getElementById('collab-frame-gxDW539THcyqVXwxHgu8V').addEventListener('mouseover',function(e){e.target.focus()});";
 
-      const iframe = document.createElement("iframe");
-      iframe.id = "collab-frame-gxDW539THcyqVXwxHgu8V";
-      iframe.src =
-        "https://cloud.chaos.com/collaboration/n/gxDW539THcyqVXwxHgu8V/present?embed";
-      iframe.allow =
-        "fullscreen; xr-spatial-tracking; accelerometer; gyroscope;";
-      iframe.referrerPolicy = "strict-origin";
-      iframe.setAttribute("scrolling", "no");
-      iframe.setAttribute("loading", "lazy");
+        const wrapper = document.createElement("div");
+        wrapper.className = "responsive-iframe-wrapper";
 
-      wrapper.appendChild(iframe);
-      container.appendChild(script);
-      container.appendChild(wrapper);
+        const iframe = document.createElement("iframe");
+        iframe.id = "collab-frame-gxDW539THcyqVXwxHgu8V";
+        iframe.src = "https://cloud.chaos.com/collaboration/n/gxDW539THcyqVXwxHgu8V/present?embed";
+        iframe.allow = "fullscreen; xr-spatial-tracking; accelerometer; gyroscope;";
+        iframe.referrerPolicy = "strict-origin";
+        iframe.setAttribute("scrolling", "no");
+        iframe.setAttribute("loading", "lazy");
+
+        wrapper.appendChild(iframe);
+        container.appendChild(script);
+        container.appendChild(wrapper);
+      }
     }
   });
 }
+
 
 
 
