@@ -167,3 +167,22 @@ if (exploreBtn) {
 
 
 
+
+
+document.getElementById('corporate-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  emailjs.sendForm('service_j1dzd4n', 'template_r6or7hv', this)
+    .then(() => {
+      document.getElementById('success-modal').style.display = 'flex';
+      this.reset();
+    }, (error) => {
+      alert('Erro ao enviar: ' + JSON.stringify(error));
+    });
+});
+
+document.getElementById('close-modal').addEventListener('click', () => {
+  document.getElementById('success-modal').style.display = 'none';
+});
+
+
