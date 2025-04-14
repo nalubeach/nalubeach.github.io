@@ -19,6 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations();
   initLightbox();
 
+// === POPUP DE IMAGEM (só 1 vez por sessão) ===
+if (popupImage && !localStorage.getItem('popupShown')) {
+  setTimeout(() => {
+    popupImage.classList.add('active');
+    localStorage.setItem('popupShown', 'true');
+  }, 2000);
+}
+
+if (popupCloseBtn) {
+  popupCloseBtn.addEventListener('click', () => {
+    popupImage.classList.remove('active');
+  });
+}
+
+if (popupImage) {
+  popupImage.addEventListener('click', (e) => {
+    if (e.target === popupImage) {
+      popupImage.classList.remove('active');
+    }
+  });
+}
 
 
   // Mobile menu toggle
