@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All Inclusive – Nalu Beach Club</title>
-  <meta name="description" content="Acessibilidade para Todos.">
+  <title>Sunset Live Music – Nalu Beach Club</title>
+  <meta name="description" content="Eventos no Nalu Beach Club.">
   <link rel="stylesheet" href="../../src/styles/style.css">
-  <link rel="stylesheet" href="../../src/styles/allinclusive.css">
+  <link rel="stylesheet" href="../../src/styles/events.css">
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
 </head>
@@ -41,86 +41,57 @@
       </div>
     </header>
 
-    <!-- All Inclusive -->
-    <section class="inclusive-hero">
+    <!-- Eventos -->
+
+    <section class="events-hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
-        <h1>All Inclusive</h1>
-        <p>A seaside venue accessible to all</p>
+        <h1>OUR PARTIESs</h1>
       </div>
     </section>
 
     <main>
-      <section class="inclusive-intro inclusive-commitment">
+
+      <section id="upcoming" class="events-list">
         <div class="container">
-          <h2 class="anim-fade-in">Accessibility for Everyone</h2>
-          <p class="anim-fade-in">
-            At Nalu Beach Club, we believe that everyone should have the opportunity to enjoy our unique
-            beachfront experience. We continually work to make our space accessible and inclusive
-            for people with different needs, ensuring that every visitor has a memorable
-            experience.
-          </p>
+        <h3 class="section-title anim-fade-in">Golden Circle</h3>
+          <div class="events-grid-livemusic">
+            
+            <!-- Event Card 3 -->
+            <div class="event-image">
+                <img src="/images/Grande_v2.png" usemap="#mapa-assentos" alt="Mapa Assentos" id="imagem-assentos">
+                <map name="mapa-assentos">
+                  <area shape="rect" coords="130,40,380,160" alt="Golden Circle" onclick="mostrarPagamento('golden')">
+                  <area shape="rect" coords="120,180,390,300" alt="Premium" onclick="mostrarPagamento('premium')">
+                  <area shape="circle" coords="260,420,35" alt="Acesso Mobilidade" onclick="mostrarPagamento('mobilidade')">
+                </map>
+              </div>
+
+              <div id="secao-pagamento" class="pagamento-wrapper" style="display: none;">
+                <h4 id="titulo-pagamento">Compra de Bilhete</h4>
+                <p id="info-pagamento">Selecionaste: <strong id="zona-escolhida">Golden Circle</strong></p>
+                
+                <form action="https://epayment.reduniq.pt/payment" method="POST" target="_blank">
+                  <input type="hidden" name="merchantId" value="O_TEU_ID_MERCHANT">
+                  <input type="hidden" name="amount" id="valor-bilhete" value="2000"> <!-- valor em cêntimos -->
+                  <input type="hidden" name="currency" value="EUR">
+                  <input type="hidden" name="orderId" value="ORDER12345">
+                  <button type="submit" class="btn-buy-ticket">Comprar Agora</button>
+                </form>
+              </div>
         </div>
       </section>
 
-      <section class="inclusive-features">
+      
+      <section class="event-booking">
         <div class="container">
-          <div class="features-grid">
-            <div class="feature-card anim-slide-up">
-              <div class="feature-icon">
-                <img src="/images/menubraille.webp" alt="Ícone de Acessibilidade">
-              </div>
-            </div>
-
-            <div class="feature-card anim-slide-up delay-100">
-              <div class="feature-icon">
-                <img src="/images/inclusive.webp" alt="Ícone de Acessibilidade">
-              </div>
-            </div>
-
-            <div class="feature-card anim-slide-up delay-200">
-              <div class="feature-icon">
-                <img src="/images/auscultadores.webp" alt="Ícone de Acessibilidade">
-              </div>
-            </div>
-
-            <div class="feature-card anim-slide-up delay-100">
-              <div class="feature-icon">
-                <img src="/images/mobilidadereduzida.webp" alt="Ícone de Acessibilidade">
-              </div>
-            </div>
-
-            <div class="feature-card anim-slide-up delay-100">
-              <div class="feature-icon">
-                <img src="/images/audiodescricao.webp" alt="Ícone de Acessibilidade">
-              </div>
-            </div>
-
-            <div class="feature-card anim-slide-up delay-100">
-              <div class="feature-icon">
-                <img src="/images/petfriendly.webp" alt="Ícone de Acessibilidade">
-              </div>
-            </div>
+          <div class="booking-content anim-fade-in">
+            <h3>Reserve Your VIP</h3>
+            <a href="tel:+351915159595" class="btn-reservation">Reserve Now</a>
           </div>
         </div>
       </section>
-
-
-      <section class="inclusive-commitment">
-        <div class="container">
-          <div class="commitment-content anim-fade-in">
-            <h2>Our Commitment</h2>
-            <p>
-              We are committed to continually improving our accessibility. If you have any suggestions on how we can make your experience even better, or if you need any specific accommodation not mentioned here, please contact us.
-            </p>
-            <p>
-              Our staff receive regular training in accessibility and inclusion to ensure that all customers are served with respect, dignity and understanding of their individual needs.
-            </p>
-            <a href="../contacts/index.html" class="btn">Contact us with suggestions</a>
-          </div>
-        </div>
-      </section>
-
+    </main>
   
   
     <!-- Footer -->
@@ -171,7 +142,39 @@
   <script type="module" src="../../src/scripts/main.js"></script>
   <script type="module" src="../../src/scripts/reservation.js"></script>
   <script type="module" src="../../src/scripts/corporate-calendar.js"></script>
-
+  <script>
+    function mostrarPagamento(zona) {
+      const secao = document.getElementById('secao-pagamento');
+      const titulo = document.getElementById('titulo-pagamento');
+      const info = document.getElementById('zona-escolhida');
+      const valor = document.getElementById('valor-bilhete');
+  
+      let preco = 0;
+      let nomeZona = '';
+  
+      switch (zona) {
+        case 'golden':
+          preco = 3000; // €30
+          nomeZona = 'Golden Circle';
+          break;
+        case 'premium':
+          preco = 2000; // €20
+          nomeZona = 'Área Premium';
+          break;
+        case 'mobilidade':
+          preco = 1500; // €15
+          nomeZona = 'Acesso Mobilidade Reduzida';
+          break;
+      }
+  
+      valor.value = preco;
+      info.textContent = nomeZona;
+      secao.style.display = 'block';
+  
+      // Scroll suave até à secção
+      secao.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
   </body>
 
   </html>
