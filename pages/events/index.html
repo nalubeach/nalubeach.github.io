@@ -53,12 +53,18 @@
     <main>
 
       <section id="upcoming" class="events-list">
-        <div class="container">
+        <div class="container" id="eventos">
           <h3 class="section-title anim-fade-in">Weekly Events</h3>
+
+        <div class="event-filter">
+          <button onclick="filtrarEventos('all')" class="filter-btn active">All</button>
+          <button onclick="filtrarEventos('sunset')" class="filter-btn">Sunset</button>
+          <button onclick="filtrarEventos('night')" class="filter-btn">Night</button>
+      </div>
 
           <div class="events-grid">
             <!-- Event Card 1 -->
-            <div class="event-card anim-slide-up">
+            <div class="event-card anim-slide-up" data-category="sunset">
               <div class="event-image">
                 <img src="https://ext.same-assets.com/1247681252/1115204679.jpeg" alt="Sunset Sessions">
                 <div class="event-date">
@@ -78,7 +84,7 @@
             </div>
 
             <!-- Event Card 2 -->
-            <div class="event-card anim-slide-up delay-100">
+            <div class="event-card anim-slide-up delay-100" data-category="sunset">
               <div class="event-image">
                 <img src="https://ext.same-assets.com/1247681252/3964903571.jpeg" alt="Beach Party">
                 <div class="event-date">
@@ -99,7 +105,7 @@
             
 
             <!-- Event Card 3 -->
-            <div class="event-card anim-slide-up delay-200">
+            <div class="event-card anim-slide-up delay-200" data-category="night">
               <div class="event-image">
                 <img src="https://ext.same-assets.com/2983688553/532083102.webp" alt="Live Music Night">
                 <div class="event-date">
@@ -181,6 +187,8 @@
   <script type="module" src="../../src/scripts/main.js"></script>
   <script type="module" src="../../src/scripts/reservation.js"></script>
   <script type="module" src="../../src/scripts/corporate-calendar.js"></script>
+  <script src="../../src/scripts/ticket.js"></script>
+
 
   </body>
 
