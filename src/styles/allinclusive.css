@@ -2,17 +2,27 @@
 
 /* Hero section */
 .inclusive-hero {
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: url(../../images/allinclusive.png)
-  }
-  
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: url(/images/All.webp) no-repeat center center; /* Garante que a imagem não se repita */
+  background-size: cover; /* Faz a imagem preencher todo o contêiner horizontalmente */
+}
+
+.inclusive-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(9, 23, 32, 0.5); /* Verde escuro com opacidade para manter o tema do site */
+}
   .inclusive-hero .hero-overlay {
     position: absolute;
     top: 0;
