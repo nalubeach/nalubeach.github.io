@@ -115,8 +115,22 @@ img {
 }
 
 #newsletter-form input[type="email"] {
-  background-color: white;
-  color: black;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#newsletter-form input[type="email"]::placeholder {
+  color: white;
+  opacity: 0.8;
+}
+
+/* Quando o input está focado */
+#newsletter-form input[type="email"]:focus {
+  background-color: transparent;
+  color: white;
+  outline: none;
 }
 
 #newsletter-form button {
