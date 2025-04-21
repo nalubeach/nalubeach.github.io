@@ -9,7 +9,45 @@
   <link rel="stylesheet" href="./src/styles/style.css">
   <link rel="preload" href="https://ext.same-assets.com/2529091309/380157087.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://ext.same-assets.com/4036669247/1349380707.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      emailjs.init("JWO5kv8FDfdLZAVzb");
+  
+      const form = document.getElementById('newsletter-form');
+  
+      if (form) {
+        const button = form.querySelector('button');
+  
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+  
+          // Impede cliques múltiplos
+          button.disabled = true;
+          button.textContent = "Sending...";
+  
+          emailjs.sendForm('service_j1dzd4n', 'template_aib1q8h', form)
+            .then(() => {
+              const container = form.closest('.newsletter-content');
+              if (container) {
+                container.innerHTML = "<p style='color:white; font-size: 1.2rem;'>Thanks for subscribing!!</p>";
+              }
+            })
+            .catch((error) => {
+              console.error("Erro ao enviar:", error);
+              button.disabled = false;
+              button.textContent = "subscribe";
+              alert("Ocorreu um erro ao subscrever. Por favor, tenta novamente.");
+            });
+        });
+      }
+    });
+  </script>
+  
+  
 </head>
+
 
 <body>
   <div id="app">
@@ -25,10 +63,22 @@
         <h1>Welcome to</h1>
         <img src="images/nalulogowhite.webp" alt="NALU Logo" class="highlight-logo">
         <br><br> <!-- Add another line break to create more space -->
-      </div>
+        <div class="newsletter newsletter-container">
+          <div class="newsletter-content">
+            <h2>News Soon</h2>
+            <form id="newsletter-form">
+              <input type="email" name="email" placeholder="Your Email" required>
+              <button type="submit">Subscribe</button>
+            </form>
+            <p id="newsletter-message" style="margin-top: 10px;"></p>
+          </div>
+        </div> 
       </section>
 
-    
+
+        
+
+      
 
       </div>
     </div>
