@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 <head>
   <meta charset="UTF-8" />
@@ -9,12 +9,11 @@
   <link rel="stylesheet" href="../../src/styles/style.css">
   <link rel="stylesheet" href="../../src/styles/contacts.css">
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
 </head>
 
 <body>
   <div id="app">
-    <!-- Header/Navigation -->
+    <!-- Header -->
     <header class="site-header">
       <div class="container">
         <div class="logo">
@@ -34,15 +33,12 @@
           <a href="#" class="btn-reservation">Reservations</a>
         </div>
         <button class="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </div>
     </header>
 
-    <!-- Contacts -->
-
+    <!-- Hero -->
     <section class="contact-hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -51,144 +47,132 @@
       </div>
     </section>
 
-    <main>
-      <section class="contact-details">
-        <div class="container">
-          <div class="details-grid">
-            <div class="contact-info anim-slide-up">
-              <h2>Informações de Contacto</h2>
-              <p>Tem alguma dúvida ou deseja fazer uma reserva? Entre em contacto connosco através de qualquer um dos seguintes métodos:</p>
+    <!-- Contact Section -->
+    <section class="contact-details">
+      <div class="container">
+        <div class="details-grid">
+          <!-- Formulário -->
+          <div class="contact-form-container anim-slide-up">
+            <h2>Envie-nos uma Mensagem</h2>
+            <p>Preencha o formulário abaixo. Responderemos o mais breve possível.</p>
 
-              <div class="info-cards">
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="icon-location">📍</i>
-                  </div>
-                  <div class="info-content">
-                    <h3>Localização</h3>
-                    <p>Av. da República<br>Nazaré, Portugal</p>
-                    <a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9" target="_blank" class="info-link">Ver no Google Maps</a>
-                  </div>
+            <form id="contact-form" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nome*</label>
+                  <input type="text" id="name" name="name" required>
                 </div>
-
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="icon-phone">📞</i>
-                  </div>
-                  <div class="info-content">
-                    <h3>Telefone</h3>
-                    <p>+351 915 159 595</p>
-                    <a href="tel:+351915159595" class="info-link">Ligar agora</a>
-                  </div>
-                </div>
-
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="icon-email">✉️</i>
-                  </div>
-                  <div class="info-content">
-                    <h3>E-mail</h3>
-                    <p>geral@nalubeachclub.com</p>
-                    <a href="mailto:geral@nalubeachclub.com" class="info-link">Enviar e-mail</a>
-                  </div>
-                </div>
-
-                <div class="info-card">
-                  <div class="info-icon">
-                    <i class="icon-clock">🕒</i>
-                  </div>
-                  <div class="info-content">
-                    <h3>Horário</h3>
-                    <p>Temporariamente encerrado.<br>Reabrimos em breve.</p>
-                  </div>
+                <div class="form-group">
+                  <label for="email">E-mail*</label>
+                  <input type="email" id="email" name="email" required>
                 </div>
               </div>
 
-              <div class="social-links">
-                <h3>Redes Sociais</h3>
-                <div class="social-icons">
-                  <a href="https://www.facebook.com/nalubeachclub/" target="_blank" class="social-icon">
-                    <img src="https://ext.same-assets.com/2983688553/4151101414.png" alt="Facebook">
-                  </a>
-                  <a href="https://www.instagram.com/nalubeachclub/?igshid=YmMyMTA2M2Y=" target="_blank" class="social-icon">
-                    <img src="https://ext.same-assets.com/2983688553/1456933033.png" alt="Instagram">
-                  </a>
-                  <a href="https://wa.me/351915159595" target="_blank" class="social-icon">
-                    <img src="https://ext.same-assets.com/2983688553/149607383.png" alt="WhatsApp">
-                  </a>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Telefone</label>
+                  <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Assunto*</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">Selecione um assunto</option>
+                    <option value="reservation">Reserva</option>
+                    <option value="event">Eventos</option>
+                    <option value="corporate">Eventos Corporativos</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="job">Oportunidades de Emprego</option>
+                    <option value="other">Outro</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Mensagem*</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="privacy" required>
+                  Li e concordo com a<a href="../privacy/">política de privacidade</a>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-full">Enviar Mensagem</button>
+            </form>
+          </div>
+
+          <!-- Contactos -->
+          <div class="contact-info anim-slide-up">
+            <h2>Informações de Contacto</h2>
+            <p>Tem alguma dúvida ou deseja fazer uma reserva? Entre em contacto connosco através de qualquer um dos seguintes métodos:</p>
+
+            <div class="info-cards">
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/location.webp" alt="Ícone de Localização">
+                </div>
+                <div class="info-content">
+                  <h3>Localização</h3>
+                  <p>
+                    <a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9" target="_blank" class="info-link">
+                      Av. da República<br>Nazaré, Portugal
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/phone.webp" alt="Ícone de Telefone">
+                </div>
+                <div class="info-content">
+                  <h3>Telefone</h3>
+                  <p>
+                    <a href="tel:+351915159595" class="info-link">
+                      +351 915 159 595
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/email.webp" alt="Ícone de E-mail">
+                </div>
+                <div class="info-content">
+                  <h3>E-mail</h3>
+                  <p>
+                    <a href="mailto:geral@nalubeachclub.com" class="info-link">
+                      geral@nalubeachclub.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/time.webp" alt="Ícone de Horário">
+                </div>
+                <div class="info-content">
+                  <h3>Horário</h3>
+                  <p>Temporariamente encerrado.<br>Reabrimos em breve.</p>
                 </div>
               </div>
             </div>
 
-            <div class="contact-form-container anim-slide-up delay-100">
-              <h2>Envie-nos uma Mensagem</h2>
-              <p>Preencha o formulário abaixo e responderemos o mais rapidamente possível.</p>
-
-              <form id="contact-form" class="contact-form">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="name">Nome*</label>
-                    <input type="text" id="name" name="name" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="email">E-mail*</label>
-                    <input type="email" id="email" name="email" required>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="tel" id="phone" name="phone">
-                  </div>
-                  <div class="form-group">
-                    <label for="subject">Assunto*</label>
-                    <select id="subject" name="subject" required>
-                      <option value="">Selecione um assunto</option>
-                      <option value="reservation">Reserva</option>
-                      <option value="event">Eventos</option>
-                      <option value="corporate">Eventos Corporativos</option>
-                      <option value="feedback">Feedback</option>
-                      <option value="job">Oportunidades de Emprego</option>
-                      <option value="other">Outro</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="message">Mensagem*</label>
-                  <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label class="checkbox-label">
-                    <input type="checkbox" name="privacy" required>
-                    Li e concordo com a<a href="../privacy/">política de privacidade</a>
-                  </label>
-                </div>
-
-                <button type="submit" class="btn btn-full">Enviar Mensagem</button>
-              </form>
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.5384182526694!2d-9.074486!3d39.6036971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd22033db936f13d%3A0x6ed2e42b597b348e!2sNalu%20Beach%20Club!5e0!3m2!1spt-PT!2spt!4v1711395010493!5m2!1spt-PT!2spt"
+                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="map-section">
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.5384182526694!2d-9.074486!3d39.6036971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd22033db936f13d%3A0x6ed2e42b597b348e!2sNalu%20Beach%20Club!5e0!3m2!1spt-PT!2spt!4v1711395010493!5m2!1spt-PT!2spt"
-            width="100%"
-            height="450"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-      </section>
-  
-  
     <!-- Footer -->
     <footer class="site-footer">
       <div class="container">
@@ -199,7 +183,6 @@
           <div class="footer-columns">
             <div class="footer-column anim-slide-left">
               <h5>Newsletter</h5>
-              <!-- Newsletter Form would go here -->
             </div>
             <div class="footer-column anim-slide-right">
               <h5>Location</h5>
@@ -217,8 +200,7 @@
               <h5>Contacts</h5>
               <ul>
                 <li><a href="tel:+351915159595">+351 915 159 595</a></li>
-                <li><a href="malito:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
-
+                <li><a href="mailto:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
               </ul>
             </div>
           </div>
@@ -231,13 +213,11 @@
         </div>
       </div>
     </footer>
-    </div>
   </div>
 
   <script type="module" src="../../src/scripts/main.js"></script>
   <script type="module" src="../../src/scripts/reservation.js"></script>
   <script type="module" src="../../src/scripts/corporate-calendar.js"></script>
+</body>
 
-  </body>
-
-  </html>
+</html>
