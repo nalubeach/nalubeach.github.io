@@ -20,7 +20,13 @@ html {
   
   .price-text {
       font-size: 150%;
+      white-space: nowrap;
+
   }
+
+  .title-text {
+    font-size: 150%;
+}
   
   .ingredients {
       font-size: 100%;
@@ -89,4 +95,28 @@ html {
       .logo-image {
           width: 15%;
       }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .menu-title{
+        font-size: 250%;
+    }
+    .title-text {
+      font-size: 100%; /* Reduz ainda mais o tamanho do título em telas menores */
+      margin-bottom: 0.3rem; /* Ajusta o espaçamento */
+    }
+  
+    .price-text {
+      font-size: 90%; /* Reduz o tamanho do preço em telas menores */
+      margin-left: 0.5rem; /* Ajusta o espaçamento */
+    }
+
+    .ingredients{
+        font-size: 50%;
+    }
+    .arrow {
+    margin-top: 20%; /* Ajusta o espaçamento superior para dispositivos móveis */
+    width: 20x; /* Reduz ainda mais o tamanho da seta */
+    height: 20px;
+    }
   }
