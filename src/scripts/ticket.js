@@ -63,8 +63,10 @@ function filtrarEventos(categoria) {
   if (btnAtivo) btnAtivo.classList.add('active');
 
   cards.forEach(card => {
-    const cat = card.getAttribute('data-category');
-    card.style.display = (categoria === 'all' || cat === categoria) ? 'block' : 'none';
+    const cat = card.getAttribute('data-category') || '';
+    // Verifica se a categoria está presente na lista de categorias do card
+    const categorias = cat.split(' ');
+    card.style.display = (categoria === 'all' || categorias.includes(categoria)) ? 'block' : 'none';
   });
 }
 

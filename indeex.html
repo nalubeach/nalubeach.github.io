@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NALU Beach Club</title>
   <meta name="description" content="Nalu Beach Club - Nazaré">
-  <link rel="stylesheet" href="./src/styles/style.css">
+  <link rel="stylesheet" href="./src/styles/stylee.css">
   <link rel="preload" href="https://ext.same-assets.com/2529091309/380157087.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="https://ext.same-assets.com/4036669247/1349380707.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -37,15 +37,15 @@
             <li><a href="pages/corporate/">Corporate</a></li>
             <li><a href="pages/allinclusive/">All Inclusive</a></li>
             <li><a href="pages/contacts/">Contacts</a></li>
-            <!-- Este aparece só no mobile -->
+            <!-- Este aparece só no mobile 
             <li class="mobile-reservation mobile-only">
               <a href="#" class="btn-reservation">Reservations</a>
-            </li>
+            </li> -->
           </ul>
         </nav>
-        <div class="reservation-button desktop-only">
+        <!--<div class="reservation-button desktop-only">
           <a href="#" class="btn-reservation">Reservations</a>
-        </div>
+        </div> -->
         <button class="menu-toggle">
           <span></span>
           <span></span>
@@ -63,9 +63,9 @@
       <div class="hero-content">
         <h1>Welcome to</h1>
         <img src="images/nalulogowhite.webp" alt="NALU Logo" class="highlight-logo">
-        <br><br> <!-- Add another line break to create more space -->
+        <br><br> <!-- Add another line break to create more space 
         <a href="#" class="btn-reservation hero-btn">Reservations</a>
-      </div>
+      </div> -->
       </section>
 
     <!-- Main Content -->
@@ -73,15 +73,81 @@
       <!-- Introduction Section -->
       <section class="intro">
         <div class="container">
-          <h2 class="anim-fade-in">Our Events</h2>
+          <h2 class="anim-fade-in">Weekly Events</h2>
           <p class="anim-fade-in"></p>
-          <div class="intro-buttons anim-slide-up intro-filter">
+          <!-- <div class="intro-buttons anim-slide-up intro-filter">
             <a href="pages/events/?filter=all#eventos" class="btn btn-filter">All</a>
             <div class="intro-filter-group">
               <a href="pages/events/?filter=sunset#eventos" class="btn btn-filter">Sunset</a>
               <a href="pages/events/?filter=night#eventos" class="btn btn-filter">Night</a>
             </div>
+          </div> -->
+          
+          <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card anim-slide-up" data-category="sunset,night">
+              <div class="event-image">
+                <img src="https://ext.same-assets.com/1247681252/1115204679.jpeg" alt="Sunset Sessions">
+                <div class="event-date">
+                  <span class="day">07</span>
+                  <span class="month">JUN</span>
+                  <span class="weekday">Saturday</span>
+                </div>
+              </div>
+              <div class="event-details">
+                <h4>Grand Opening</h4>
+                <p class="event-description">Aproveite o pôr do sol com os melhores DJs e cocktails especiais à beira-mar.</p>
+                <div class="event-info">
+                  <span><i class="icon-time"></i> 17:00 - 04:00</span>
+                  <a href="https://3cket.com/en/event/grand-opening-2025-nalu-beach-club" target="_blank" class="btn-buy-ticket">Guest</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Card 2 -->
+            <div class="event-card anim-slide-up delay-100" data-category="sunset">
+              <div class="event-image">
+                <img src="https://ext.same-assets.com/1247681252/3964903571.jpeg" alt="Beach Party">
+                <div class="event-date">
+                  <span class="day">08</span>
+                  <span class="month">JUN</span>
+                  <span class="weekday">Sunday</span>
+                </div>
+              </div>
+              <div class="event-details">
+                <h4>Sunset Live Music</h4>
+                <p class="event-description">Uma festa exclusiva na praia com música ao vivo, gastronomia premium e muita diversão.</p>
+                <div class="event-info">
+                  <span><i class="icon-time"></i> 18:00 - 21:00</span>
+                  <a href="" target="_blank" class="btn-buy-ticket">Buy Ticket</a>
+                </div>
+              </div>
+            </div>
+          
+
+            <!-- Event Card 3 
+            <div class="event-card anim-slide-up delay-200" data-category="night">
+              <div class="event-image">
+                <img src="https://ext.same-assets.com/2983688553/532083102.webp" alt="Live Music Night">
+                <div class="event-date">
+                  <span class="day">07</span>
+                  <span class="month">JUL</span>
+                  <span class="weekday">Tuesday</span>
+                </div>
+              </div>
+              <div class="event-details">
+                <h4>Sunset Live Music</h4>
+                <p class="event-description">Uma noite especial com os melhores artistas locais em um ambiente descontraído.</p>
+                <div class="event-info">
+                  <span><i class="icon-time"></i> 18:00 - 23:00</span>
+                  <a href="/pages/events-livemusic/index.html" target="_blank" class="btn-buy-ticket">Buy Ticket</a>
+                </div>
+              </div>
+            </div> -->
           </div>
+        </div>
+
+
         </div>
       </section>
 
@@ -178,7 +244,7 @@
     </footer>
 
 
-    <!-- Booking Modal -->
+    <!-- Booking Modal 
     <div class="booking-modal">
       <div class="booking-modal-content">
         <span class="close-btn">&times;</span>
@@ -261,7 +327,7 @@
           <button type="submit" class="btn btn-full">Reserve Now</button>
         </form>
       </div>
-    </div>
+    </div>-->
   </div>
  
 
