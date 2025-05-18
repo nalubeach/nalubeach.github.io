@@ -116,9 +116,15 @@ window.addEventListener('scroll', function() {
   }
 });
 
+// Impedir datas passadas no campo "Preferred Date"
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0]; // yyyy-mm-dd
+    dateInput.setAttribute('min', today);
+  }
+
 
 const exploreBtn = document.getElementById("explore-venues-btn");
-
 if (exploreBtn) {
   exploreBtn.addEventListener("click", function (e) {
     e.preventDefault();
