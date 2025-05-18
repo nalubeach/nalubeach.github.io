@@ -136,7 +136,7 @@
 }
 
 .venue-content h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: 2.2rem;
   margin-bottom: 1.2rem;
   color: #112113;
@@ -277,6 +277,11 @@
 
   .venue-image, .venue-content {
     width: 100%;
+  }
+
+    .venue-image img {
+    object-fit: contain;
+    height: auto;
   }
 
   .corporate-form .form-row {
