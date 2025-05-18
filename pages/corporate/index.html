@@ -200,8 +200,6 @@
           </div>
           <div class="footer-columns">
             <div class="footer-column anim-slide-left">
-              <h5>Newsletter</h5>
-              <!-- Newsletter Form would go here -->
             </div>
             <div class="footer-column anim-slide-right">
               <h5>Location</h5>
@@ -234,91 +232,7 @@
       </div>
     </footer>
 
-    <!-- Booking Modal -->
-    <div class="booking-modal">
-      <div class="booking-modal-content">
-        <span class="close-btn">&times;</span>
-        <h3>Book a table</h3>
-        <p>Reservations can be booked up to 60 days in advance. Last reservation at 11pm and 10pm on Sundays. Children under 10 years old will not be permitted in the restaurant for any bookings after 7:00pm.</p>
-
-        <form id="reservation-form" class="reservation-form">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="res-name">Name</label>
-              <input type="text" id="res-name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="res-email">Email</label>
-              <input type="email" id="res-email" name="email" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="res-phone">Phone</label>
-              <input type="tel" id="res-phone" name="phone" required>
-            </div>
-            <div class="form-group">
-              <label for="res-guests">Number of Guests</label>
-              <select id="res-guests" name="guests" required>
-                <option value="">Select</option>
-                <option value="1">1 Person</option>
-                <option value="2">2 People</option>
-                <option value="3">3 People</option>
-                <option value="4">4 People</option>
-                <option value="5">5 People</option>
-                <option value="6">6 People</option>
-                <option value="7+">7+ People</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="res-date">Date</label>
-              <input type="date" id="res-date" name="date" required>
-            </div>
-            <div class="form-group">
-              <label for="res-time">Time</label>
-              <select id="res-time" name="time" required>
-                <option value="">Select</option>
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-                <option value="14:30">14:30</option>
-                <option value="15:00">15:00</option>
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-                <option value="20:30">20:30</option>
-                <option value="21:00">21:00</option>
-                <option value="21:30">21:30</option>
-                <option value="22:00">22:00</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="res-message">Special Requests</label>
-            <textarea id="res-message" name="message" rows="3"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label class="checkbox-label">
-              <input type="checkbox" name="terms" required>
-              I agree to the privacy policy and terms and conditions
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-full">Reserve Now</button>
-        </form>
-      </div>
-    </div>
-  </div>
+    
 
   <script type="module" src="../../src/scripts/main.js"></script>
   <script type="module" src="../../src/scripts/reservation.js"></script>
