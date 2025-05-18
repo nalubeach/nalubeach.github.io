@@ -1098,6 +1098,7 @@ h1, h2, h3, h4, h5, h6 {
   .gallery-grid {
     display: flex;
     gap: 0;
+    width: max-content;
     animation: scrollLeft 20s linear infinite;
     touch-action: pan-y;
     will-change: transform;
