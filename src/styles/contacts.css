@@ -356,6 +356,8 @@
     .details-grid {
       grid-template-columns: 1fr;
       gap: 40px;
+      display: flex;
+      flex-direction: column-reverse;
     }
   
     .contact-form-container {
