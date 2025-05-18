@@ -167,14 +167,11 @@ if (exploreBtn) {
 
 
 
-
-
-// EMAILJS para Corporate
-
-document.getElementById('corporate-form').addEventListener('submit', function(e) {
+// EMAILJS para formulário de contactos
+document.getElementById('contact-form').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  emailjs.sendForm('service_j1dzd4n', 'template_r6or7hv', this)
+  emailjs.sendForm('service_j1dzd4n', 'template_aib1q8h', this)
     .then(() => {
       document.getElementById('success-modal').style.display = 'flex';
       this.reset();
@@ -186,4 +183,3 @@ document.getElementById('corporate-form').addEventListener('submit', function(e)
 document.getElementById('close-modal').addEventListener('click', () => {
   document.getElementById('success-modal').style.display = 'none';
 });
-
