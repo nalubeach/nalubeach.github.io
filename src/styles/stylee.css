@@ -1130,8 +1130,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {  
-  .menu-features {
-    grid-template-columns: 1fr;
+  .menu-feature {
+    position: relative;
+    padding: 0;
+    height: auto;
+  }
+
+  .menu-feature img.menu-feature-image {
+    position: static; /* remove posicionamento absoluto */
+    width: 100%;
+    height: auto;      /* deixa a imagem adaptar-se naturalmente */
+    object-fit: contain; /* evita cortes */
+    display: block;
+  }
+
+  .menu-feature-title {
+    position: static;
+    transform: none;
+    margin-top: 0.5rem;
   }
   
   .event-card {
