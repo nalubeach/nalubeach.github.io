@@ -189,18 +189,18 @@ document.getElementById('close-modal').addEventListener('click', () => {
 
 
 // EMAILJS para formulário de contactos
-const contactForm = document.getElementById('contact-form');
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-if (contactForm) {
-  contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+  emailjs.sendForm('service_j1dzd4n', 'template_aib1q8h', this)
+    .then(() => {
+      document.getElementById('success-modal').style.display = 'flex';
+      this.reset();
+    }, (error) => {
+      alert('Erro ao enviar: ' + JSON.stringify(error));
+    });
+});
 
-    emailjs.sendForm('service_j1dzd4n', 'template_aib1q8h', this)
-      .then(() => {
-        alert('Mensagem enviada com sucesso!');
-        this.reset();
-      }, (error) => {
-        alert('Erro ao enviar: ' + JSON.stringify(error));
-      });
-  });
-}
+document.getElementById('close-modal').addEventListener('click', () => {
+  document.getElementById('success-modal').style.display = 'none';
+});
