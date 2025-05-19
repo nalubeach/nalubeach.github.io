@@ -1099,9 +1099,14 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 0;
     width: max-content;
-    animation: scrollLeft 20s linear infinite;
+    animation: scrollLeft 25s linear infinite;
+    animation-play-state: running;
     touch-action: pan-y;
     will-change: transform;
+  }
+
+  .gallery:hover .gallery-grid {
+    animation-play-state: paused;
   }
 
   .gallery-item {
@@ -1124,7 +1129,7 @@ h1, h2, h3, h4, h5, h6 {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-300%);
     }
   }
 }
