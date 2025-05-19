@@ -186,6 +186,21 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-light-tan);
 }
 
+
+.language-switcher-inline a {
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+.language-switcher-inline a:hover {
+  text-decoration: underline;
+}
+
+
+
 /* Esconde o menu hambúrguer em telas grandes */
 .menu-toggle {
   display: none; /* Escondido por padrão */

@@ -37,16 +37,14 @@
         </div>
         <nav class="main-nav">
           <ul>
-            <li><a href="../menu/">Menu</a></li>
-            <li><a href="../events/">Events</a></li>
-            <li><a href="../corporate/">Corporate</a></li>
-            <li><a href="../allinclusive/">All Inclusive</a></li>
-            <li><a href="../contacts/">Contacts</a></li>
+            <li><a href="/pt/menu/">Menu</a></li>
+            <li><a href="/pt/eventos/">Eventos</a></li>
+            <li><a href="/pt/corporativos/">Corporativos</a></li>
+            <li><a href="/pt/allinclusive/">All Inclusive</a></li>
+            <li><a href="/pt/contactos/">Contactos</a></li>
+            <li class="language-switcher-inline"><a href="/en/index.html">EN</a> | <a href="/pt/index.html">PT</a></li>
           </ul>
         </nav>
-        <!--<div class="reservation-button">
-          <a href="#" class="btn-reservation">Reservations</a>
-        </div> -->
         <button class="menu-toggle">
           <span></span>
           <span></span>
@@ -61,7 +59,7 @@
         <img src="/images/Corporativos.webp" alt="Evento Corporativo">
       </div>
       <div class="corporate-hero-content">
-        <h1>Corporate Events</h1>
+        <h1>Eventos Corporativos</h1>
       </div>
     </section>
 
@@ -70,13 +68,13 @@
       <!-- Introduction Section -->
       <section class="corporate-intro">
         <div class="container">
-          <h2 class="anim-fade-in">Elevate Your Corporate Experience</h2>
+          <h2 class="anim-fade-in">Eleve a Sua Experiência Corporativa</h2>
           <p class="anim-fade-in">
-            From private executive dinners to bespoke brand activations, Nalu delivers a premium seaside experience tailored to discerning corporate guests.
+            De jantares executivos a eventos de marca feitos à medida, o Nalu oferece uma experiência premium à beira-mar pensada para empresas que procuram excelência.
           </p>
           <div class="corporate-buttons anim-slide-up">
-            <a href="#" class="btn" id="explore-venues-btn">Virtual Tour</a>
-            <a href="#enquiry-form" class="btn">Make an Enquiry</a>
+            <a href="#" class="btn" id="explore-venues-btn">Tour Virtual</a>
+            <a href="#enquiry-form" class="btn">Pedido de Informação</a>
           </div>
           <div id="iframe-container" class="responsive-iframe-wrapper" style="display: none;"></div>
         </div>
@@ -91,10 +89,10 @@
             </div>
             <div class="venue-content">
               <h3>Nalu Beach Club</h3>
-              <p>Nalu brings together the ease of an open-air setting with the structure required for well-executed corporate gatherings. With capacity for up to 200 guests, it offers a unique venue to align teams, present ideas, or simply bring people together.</p>
+              <p>O Nalu combina a comodidade de um ambiente ao ar livre com a estrutura necessária para reuniões empresariais bem executadas. Com capacidade para 200 convidados, oferece um local único para aproximar equipas, apresentar ideias ou simplesmente reunir pessoas.</p>
               <ul class="venue-details">
-                <li><strong>Capacity:</strong> 100 seated, 200 standing</li>
-                <li><strong>Features:</strong> Full F&B, AV equipment available, customizable layouts</li>
+                <li><strong>Capacity:</strong> 100 à Mesa, 200 Regime Volante</li>
+                <li><strong>Features:</strong> Serviço F&B, equipamento audiovisual e layouts personalizáveis</li>
               </ul>
             </div>
           </div>
@@ -115,17 +113,17 @@
       <!-- Enquiry Form Section -->
       <section id="enquiry-form" class="enquiry-section">
         <div class="container">
-          <h2 class="anim-fade-in">Make an Enquiry</h2>
-          <p class="anim-fade-in">Complete the form below and our dedicated events team will be in touch to discuss your requirements in detail.</p>
+          <h2 class="anim-fade-in">Pedido de Informação</h2>
+          <p class="anim-fade-in">Preencha o formulário.<br>A nossa equipa entrará em contacto para discutir as suas necessidades em pormenor.</p>
 
           <form id="corporate-form" class="corporate-form anim-slide-up">
             <div class="form-row">
               <div class="form-group">
-                <label for="company">Company Name*</label>
+                <label for="company">Nome da Empresa*</label>
                 <input type="text" id="company" name="company" required>
               </div>
               <div class="form-group">
-                <label for="name">Contact Name*</label>
+                <label for="name">Nome de Contacto*</label>
                 <input type="text" id="name" name="name" required>
               </div>
             </div>
@@ -136,53 +134,53 @@
                 <input type="email" id="email" name="email" required>
               </div>
               <div class="form-group">
-                <label for="phone">Phone*</label>
+                <label for="phone">Telemóvel*</label>
                 <input type="tel" id="phone" name="phone" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="event_type">Event Type*</label>
+                <label for="event_type">Tipo de Evento*</label>
                 <select id="event_type" name="event_type" required>
-                  <option value="">Select</option>
-                  <option value="lunch">Corporate Lunch</option>
-                  <option value="dinner">Corporate Dinner</option>
-                  <option value="reception">Drinks Reception</option>
-                  <option value="conference">Conference/Meeting</option>
-                  <option value="other">Other</option>
+                  <option value="">Selecionar</option>
+                  <option value="lunch">Almoço Corporativo</option>
+                  <option value="dinner">Jantar Corporativo</option>
+                  <option value="reception">Welcome Drink</option>
+                  <option value="conference">Conferência/Reunião</option>
+                  <option value="other">Outro</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="guests">Number of Guests*</label>
+                <label for="guests">Número de Convidados*</label>
                 <input type="number" id="guests" name="guests" min="1" max="200" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="date">Preferred Date*</label>
+                <label for="date">Data*</label>
                 <input type="date" id="date" name="date" required>
               </div>
               <div class="form-group">
-                <label for="budget">Budget per Person (€)</label>
+                <label for="budget">Orçamento p/ Pessoa (€)</label>
                 <input type="number" id="budget" name="budget">
               </div>
             </div>
 
             <div class="form-group">
-              <label for="requirements">Additional Requirements</label>
+              <label for="requirements">Requisitos Adicionais</label>
               <textarea id="requirements" name="requirements" rows="4"></textarea>
             </div>
 
             <div class="form-group">
               <label class="checkbox-label">
                 <input type="checkbox" name="terms" required>
-                I agree to <a href="/pages/privacy/index.html" style="text-decoration: underline;">privacy policy and terms and conditions</a>
+                Aceito a <a href="/pages/privacy/index.html" style="text-decoration: underline;">política de privacidade e os termos e condições</a>
               </label>
             </div>
 
-            <button type="submit" class="btn btn-full">Submit Enquiry</button>
+            <button type="submit" class="btn btn-full">Enviar</button>
           </form>
         </div>
       </section>
@@ -198,21 +196,22 @@
           </div>
           <div class="footer-columns">
             <div class="footer-column anim-slide-left">
+              <!-- Newsletter Form would go here -->
             </div>
             <div class="footer-column anim-slide-right">
-              <h5>Location</h5>
+              <h5>Localização</h5>
               <ul>
                 <li><a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9">Av. da República, Nazaré</a></li>
               </ul>
             </div>
             <div class="footer-column anim-slide-left">
-              <h5>Timetable</h5>
+              <h5>Horário</h5>
               <ul>
-                <li>Temporarily closed</li>
+                <li>Fechado temporariamente</li>
               </ul>
             </div>
             <div class="footer-column anim-slide-right">
-              <h5>Contacts</h5>
+              <h5>Contactos</h5>
               <ul>
                 <li><a href="tel:+351915159595">+351 915 159 595</a></li>
                 <li><a href="malito:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
@@ -224,7 +223,7 @@
         <div class="footer-bottom">
           <p>© 2025 Copyright: nalubeachclub.com</p>
           <ul class="footer-links">
-            <li><a href="/pages/privacy/index.html">Privacy Policy | Cookies </a></li>
+            <li><a href="/pages/privacy/">Privacy Policy | Cookies </a></li>
           </ul>
         </div>
       </div>

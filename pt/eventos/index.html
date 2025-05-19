@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos – Nalu Beach Club</title>
+  <meta name="description" content="Eventos no Nalu Beach Club.">
+  <link rel="stylesheet" href="../../src/styles/style.css">
+  <link rel="stylesheet" href="../../src/styles/events.css">
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZP4TRKM');</script>
+  <!-- End Google Tag Manager -->
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header/Navigation -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="../../index.html">
+            <img src="../../images/nalulogowhite.webp" alt="Nalu Logo">
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/pt/menu/">Menu</a></li>
+            <li><a href="/pt/eventos/">Eventos</a></li>
+            <li><a href="/pt/corporativos/">Corporativos</a></li>
+            <li><a href="/pt/allinclusive/">All Inclusive</a></li>
+            <li><a href="/pt/contactos/">Contactos</a></li>
+            <li class="language-switcher-inline"><a href="/en/index.html">EN</a> | <a href="/pt/index.html">PT</a></li>
+          </ul>
+        </nav>
+        <!--<div class="reservation-button">
+          <a href="#" class="btn-reservation">Reservations</a>
+        </div> -->
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Eventos -->
+
+    <section class="events-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>EVENTOS</h1>
+      </div>
+    </section>
+
+    <main>
+
+      <section id="upcoming" class="events-list">
+        <div class="container" id="eventos">
+          <h3 class="section-title anim-fade-in">Os Nossos Eventos</h3>
+
+        <div class="event-filter">
+          <button onclick="filtrarEventos('all')" class="filter-btn active">Todos</button>
+          <button onclick="filtrarEventos('sunset')" class="filter-btn">Sunset</button>
+          <button onclick="filtrarEventos('night')" class="filter-btn">Noite</button>
+        </div>
+
+          <div class="events-grid">
+            <!-- Event Card 1 -->
+            <div class="event-card anim-slide-up" data-category="sunset night">
+              <div class="event-image">
+                <img src="/images/events/junho/07-06.webp" alt="Sunset Sessions">
+              </div>
+              <div class="event-details">
+                <div class="event-info">
+                  <span><i class="icon-time"></i> 17:00 - 04:00</span>
+                  <a href="https://3cket.com/en/event/grand-opening-2025-nalu-beach-club" target="_blank" class="btn-buy-ticket">Guest</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Event Card 1 
+            <div class="event-card anim-slide-up" data-category="sunset">
+              <div class="event-image">
+                <img src="/images/events/07-06.jpg" alt="Sunset Sessions">
+              </div>
+              <div class="event-details">
+                <div class="event-info">
+                  <span><i class="icon-time"></i> 17:00 - 04:00</span>
+                  <a href="https://3cket.com/en/event/grand-opening-2025-nalu-beach-club" target="_blank" class="btn-buy-ticket">Guest</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      
+      <section class="event-booking">
+        <div class="container">
+          <div class="booking-content anim-fade-in">
+            <h3>Mesas / Privados</h3>
+            <a href="https://wa.me/351915159595" class="btn-reservation">Reserva aqui</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!--
+      <section class="our-events">
+        <div class="container">
+          <h3 class="section-title-ourevents anim-fade-in">Residencies</h3>
+
+          <div class="menu-category anim-fade-in">
+            <div class="menu-category-image">
+              <img src="https://ext.same-assets.com/2115706703/236022085.jpeg" alt="Bar Menu">
+            </div>
+            <div class="menu-category-content">
+              <h2>Tuesday</h2>
+              <p>Dr. Why (Games & Fun)</p>
+              <a href="../menu/bar/" class="btn" target="_blank">View Menu</a>
+            </div>
+          </div>
+
+          <div class="menu-category anim-fade-in">
+            <div class="menu-category-content">
+              <h2>Wednesday</h2>
+              <p>Live Music w/ Shivers</p>
+              <a href="../menu/cafetaria/" class="btn" target="_blank">View Menu</a>
+            </div>
+            <div class="menu-category-image">
+              <img src="https://ext.same-assets.com/3559319753/427156030.jpeg" alt="Cafetaria Menu">
+            </div>
+          </div>
+
+          <div class="menu-category anim-fade-in">
+            <div class="menu-category-image">
+              <img src="../../images/nalu6.webp" alt="Snacks Menu">
+            </div>
+            <div class="menu-category-content">
+              <h2>Thursday <br>(starting in july)</h2>
+              <p>Jazz Sessions </p>
+              <a href="../menu/snacks/" class="btn" target="_blank">View Menu</a>
+            </div>
+          </div>
+
+          <div class="menu-category anim-fade-in">
+            <div class="menu-category-content">
+              <h2>Friday</h2>
+              <p>Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui.</p>
+              <a href="../menu/vinhos/" class="btn" target="_blank">View Menu</a>
+            </div>
+            <div class="menu-category-image">
+              <img src="https://ext.same-assets.com/2592949354/4090407880.jpeg" alt="Vinhos Menu">
+            </div>
+          </div>
+
+          <div class="menu-category anim-fade-in">
+            <div class="menu-category-image">
+              <img src="../../images/altius.webp" alt="Privados Menu">
+            </div>
+            <div class="menu-category-content">
+              <h2>Saturday</h2>
+              <p>Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui Uma frase bonita aqui.</p>
+              <a href="../menu/privados/" class="btn" target="_blank">View Menu</a>
+            </div>
+          </div>
+
+          <div class="menu-category anim-fade-in">
+            <div class="menu-category-content">
+              <h2>Sunday</h2>
+              <p>Live Music w/ Pharol Sessions</p>
+              <a href="../menu/vinhos/" class="btn" target="_blank">View Menu</a>
+            </div>
+            <div class="menu-category-image">
+              <img src="https://ext.same-assets.com/2592949354/4090407880.jpeg" alt="Vinhos Menu">
+            </div>
+          </div>
+        </div>
+      </section> -->
+    </main>
+
+<!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-intro">
+            <h4 class="anim-slide-left">Nalu Beach Club</h4>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-column anim-slide-left">
+              <!-- Newsletter Form would go here -->
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Localização</h5>
+              <ul>
+                <li><a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9">Av. da República, Nazaré</a></li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-left">
+              <h5>Horário</h5>
+              <ul>
+                <li>Fechado temporariamente</li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Contactos</h5>
+              <ul>
+                <li><a href="tel:+351915159595">+351 915 159 595</a></li>
+                <li><a href="malito:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Copyright: nalubeachclub.com</p>
+          <ul class="footer-links">
+            <li><a href="/pages/privacy/">Privacy Policy | Cookies </a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    </div>
+  </div>
+
+  <script type="module" src="../../src/scripts/main.js"></script>
+  <script type="module" src="../../src/scripts/reservation.js"></script>
+  <script type="module" src="../../src/scripts/corporate-calendar.js"></script>
+  <script src="../../src/scripts/ticket.js"></script>
+
+
+  </body>
+
+  </html>
