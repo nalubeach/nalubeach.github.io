@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contactos – Nalu Beach Club</title>
+  <meta name="description" content="Contactos">
+  <link rel="stylesheet" href="../../src/styles/style.css">
+  <link rel="stylesheet" href="../../src/styles/contacts.css">
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZP4TRKM');</script>
+  <!-- End Google Tag Manager -->
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("JWO5kv8FDfdLZAVzb"); // substitui com o teu
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/pt/">
+            <img src="../../images/nalulogowhite.webp" alt="Nalu Logo">
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/en/menu/">Menu</a></li>
+            <li><a href="/en/events/">Events</a></li>
+            <li><a href="/en/corporate/">Corporate</a></li>
+            <li><a href="/en/allinclusive/">All Inclusive</a></li>
+            <li><a href="/en/contacts/">Contacts</a></li>
+            <li class="language-switcher-inline"><a href="/en/">EN</a> | <a href="/pt/">PT</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="contact-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Contacts</h1>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-details">
+      <div class="container">
+        <div class="details-grid">
+          <!-- Formulário -->
+          <div class="contact-form-container anim-slide-up">
+            <h2>Send us a message</h2>
+            <p>Fill out the form below. We'll get back to you as soon as possible.</p>
+
+            <form id="contact-form" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Name*</label>
+                  <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email*</label>
+                  <input type="email" id="email" name="email" required>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">Phone*</label>
+                  <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject*</label>
+                  <select id="subject" name="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="reservation">Reservations</option>
+                    <option value="event">Private Tables</option>
+                    <option value="corporate">Corporate Events</option>
+                    <option value="feedback">Feedback</option>
+                    <option value="job">All Inclusive Program</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message*</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="privacy" required>
+                  <span>I agree to <a href="/pages/privacy/index.html" style="text-decoration: underline;">privacy policy and terms and conditions</a></span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-full">Submit</button>
+            </form>
+          </div>
+
+          <!-- Contactos -->
+          <div class="contact-info anim-slide-up">
+            <h2>Contact information</h2>
+            <p>Do you have any questions or would you like to make a reservation? Contact us using any of the following methods:</p>
+
+            <div class="info-cards">
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/location.webp" alt="Ícone de Localização">
+                </div>
+                <div class="info-content">
+                  <h3>Location</h3>
+                  <p>
+                    <a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9" target="_blank" class="info-link">
+                      Av. da República<br>Nazaré, Portugal
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/phone.webp" alt="Ícone de Telefone">
+                </div>
+                <div class="info-content">
+                  <h3>Phone</h3>
+                  <p>
+                    <a href="tel:+351915159595" class="info-link">
+                      +351 915 159 595
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/email.webp" alt="Ícone de E-mail">
+                </div>
+                <div class="info-content">
+                  <h3>Email</h3>
+                  <p>
+                    <a href="mailto:geral@nalubeachclub.com" class="info-link">
+                      geral@nalubeachclub.com
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="info-icon">
+                  <img src="/images/icons/time.webp" alt="Ícone de Horário">
+                </div>
+                <div class="info-content">
+                  <h3>Timetable</h3>
+                  <p>Temporarily closed<br>Opening soon</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-container">
+              <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3438.3170738609037!2d-9.0769814!3d39.6030693!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd18a9d06f7c2f27%3A0x3201bed270ceadb4!2sNalu%20Beach%20Club!5e1!3m2!1spt-PT!2spt!4v1745366129284!5m2!1spt-PT!2spt"                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-intro">
+            <h4 class="anim-slide-left">Nalu Beach Club</h4>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-column anim-slide-left">
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Location</h5>
+              <ul>
+                <li><a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9">Av. da República, Nazaré</a></li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-left">
+              <h5>Timetable</h5>
+              <ul>
+                <li>Temporarily closed</li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Contacts</h5>
+              <ul>
+                <li><a href="tel:+351915159595">+351 915 159 595</a></li>
+                <li><a href="malito:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Copyright: nalubeachclub.com</p>
+          <ul class="footer-links">
+            <li><a href="/pages/privacy/index.html">Privacy Policy | Cookies </a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="../../src/scripts/maincontacts.js"></script>
+  <script type="module" src="../../src/scripts/reservation.js"></script>
+
+
+  <div id="success-modal" class="custom-modal">
+  <div class="modal-content">
+    <p>We'll be in touch soon!</p>
+    <button id="close-modal">Close</button>
+  </div>
+</div>
+</body>
+
+</html>

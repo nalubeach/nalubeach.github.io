@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos Corporativos – Nalu Beach Club</title>
+  <meta name="description" content="Eventos corporativos no Nalu Beach Club.">
+  <link rel="stylesheet" href="../../src/styles/style.css">
+  <link rel="stylesheet" href="../../src/styles/corporate-events.css">
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TZP4TRKM');</script>
+  <!-- End Google Tag Manager -->
+
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("JWO5kv8FDfdLZAVzb"); // substitui com o teu
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Header/Navigation -->
+    <header class="site-header">
+      <div class="container">
+        <div class="logo">
+          <a href="/pt/">
+            <img src="../../images/nalulogowhite.webp" alt="Nalu Logo">
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/en/menu/">Menu</a></li>
+            <li><a href="/en/events/">Events</a></li>
+            <li><a href="/en/corporate/">Corporate</a></li>
+            <li><a href="/en/allinclusive/">All Inclusive</a></li>
+            <li><a href="/en/contacts/">Contacts</a></li>
+            <li class="language-switcher-inline"><a href="/en/">EN</a> | <a href="/pt/">PT</a></li>
+          </ul>
+        </nav>
+        <button class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Corporate Events Hero Section -->
+    <section class="corporate-hero">
+      <div class="corporate-hero-image">
+        <img src="/images/Corporativos.webp" alt="Evento Corporativo">
+      </div>
+      <div class="corporate-hero-content">
+        <h1>Corporate Events</h1>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Introduction Section -->
+      <section class="corporate-intro">
+        <div class="container">
+          <h2 class="anim-fade-in">Elevate Your Corporate Experience</h2>
+          <p class="anim-fade-in">
+            From private executive dinners to bespoke brand activations, Nalu delivers a premium seaside experience tailored to discerning corporate guests.
+          </p>
+          <div class="corporate-buttons anim-slide-up">
+            <a href="#" class="btn" id="explore-venues-btn">Virtual Tour</a>
+            <a href="#enquiry-form" class="btn">Make an Enquiry</a>
+          </div>
+          <div id="iframe-container" class="responsive-iframe-wrapper" style="display: none;"></div>
+        </div>
+      </section>
+
+      <!-- Corporate Venues Section -->
+      <section id="venues" class="corporate-venues">
+        <div class="container">
+          <div class="venue-item anim-fade-in">
+            <div class="venue-image">
+              <img src="/images/corporate.webp" alt="Nalu Corporate">
+            </div>
+            <div class="venue-content">
+              <h3>Nalu Beach Club</h3>
+              <p>Nalu brings together the ease of an open-air setting with the structure required for well-executed corporate gatherings. With capacity for up to 200 guests, it offers a unique venue to align teams, present ideas, or simply bring people together.</p>
+              <ul class="venue-details">
+                <li><strong>Capacity:</strong> 100 seated, 200 standing</li>
+                <li><strong>Features:</strong> Full F&B, AV equipment available, customizable layouts</li>
+              </ul>
+            </div>
+          </div>
+      </section>
+
+      <!-- Availability Section 
+      <section class="calendar-section">
+        <div class="container">
+          <h2 class="anim-fade-in">Disponibilidade</h2>
+          <p class="anim-fade-in">Verifique a disponibilidade dos nossos espaços para eventos corporativos e faça uma consulta diretamente através do nosso calendário interativo. Selecione uma data para ver quais espaços estão disponíveis.</p> --> 
+
+          <!--<div id="corporate-calendar" class="anim-slide-up"> -->
+            <!-- O calendário será renderizado aqui pelo JavaScript -->
+          <!-- </div>
+        </div>
+      </section> -->
+
+      <!-- Enquiry Form Section -->
+      <section id="enquiry-form" class="enquiry-section">
+        <div class="container">
+          <h2 class="anim-fade-in">Make an Enquiry</h2>
+          <p class="anim-fade-in">Complete the form below and our dedicated events team will be in touch to discuss your requirements in detail.</p>
+
+          <form id="corporate-form" class="corporate-form anim-slide-up">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Company Name*</label>
+                <input type="text" id="company" name="company" required>
+              </div>
+              <div class="form-group">
+                <label for="name">Contact Name*</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone*</label>
+                <input type="tel" id="phone" name="phone" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="event_type">Event Type*</label>
+                <select id="event_type" name="event_type" required>
+                  <option value="">Select</option>
+                  <option value="lunch">Corporate Lunch</option>
+                  <option value="dinner">Corporate Dinner</option>
+                  <option value="reception">Drinks Reception</option>
+                  <option value="conference">Conference/Meeting</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="guests">Number of Guests*</label>
+                <input type="number" id="guests" name="guests" min="1" max="200" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="date">Preferred Date*</label>
+                <input type="date" id="date" name="date" required>
+              </div>
+              <div class="form-group">
+                <label for="budget">Budget per Person (€)</label>
+                <input type="number" id="budget" name="budget">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="requirements">Additional Requirements</label>
+              <textarea id="requirements" name="requirements" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="terms" required>
+                I agree to <a href="/pages/privacy/index.html" style="text-decoration: underline;">privacy policy and terms and conditions</a>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-full">Submit Enquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+  
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-intro">
+            <h4 class="anim-slide-left">Nalu Beach Club</h4>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-column anim-slide-left">
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Location</h5>
+              <ul>
+                <li><a href="https://goo.gl/maps/YPVnS2wpcXJR17zi9">Av. da República, Nazaré</a></li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-left">
+              <h5>Timetable</h5>
+              <ul>
+                <li>Temporarily closed</li>
+              </ul>
+            </div>
+            <div class="footer-column anim-slide-right">
+              <h5>Contacts</h5>
+              <ul>
+                <li><a href="tel:+351915159595">+351 915 159 595</a></li>
+                <li><a href="malito:geral@nalubeachclub.com">geral@nalubeachclub.com</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2025 Copyright: nalubeachclub.com</p>
+          <ul class="footer-links">
+            <li><a href="/pages/privacy/index.html">Privacy Policy | Cookies </a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    
+
+  <script type="module" src="../../src/scripts/main.js"></script>
+  <script type="module" src="../../src/scripts/reservation.js"></script>
+
+    <!-- COLOCA ISTO MESMO ANTES DO  -->
+  <div id="success-modal" class="custom-modal">
+    <div class="modal-content">
+      <p>We'll be in touch soon!</p>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+  </body>
+
+  </html>
