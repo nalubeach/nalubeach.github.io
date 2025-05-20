@@ -133,11 +133,11 @@ if (exploreBtn) {
 
     if (isSafari) {
       // Abrir em nova aba no Safari
-      window.open("https://cloud.chaos.com/collaboration/n/gxDW539THcyqVXwxHgu8V/present", "_blank");
+      window.open("https://cloud.chaos.com/collaboration/n/UBacSsVP4F4NBFtZt11S7M/present", "_blank");
     } else {
       // Mostrar embed nos restantes browsers
       const container = document.getElementById("iframe-container");
-      const existingIframe = document.getElementById("collab-frame-gxDW539THcyqVXwxHgu8V");
+      const existingIframe = document.getElementById("collab-frame-UBacSsVP4F4NBFtZt11S7M");
 
       if (existingIframe) {
         container.innerHTML = "";
@@ -150,14 +150,14 @@ if (exploreBtn) {
         const script = document.createElement("script");
         script.defer = true;
         script.type = "text/javascript";
-        script.src = "data:text/javascript,document.getElementById('collab-frame-gxDW539THcyqVXwxHgu8V').addEventListener('mouseover',function(e){e.target.focus()});";
+        script.src = "data:text/javascript,document.getElementById('collab-frame-UBacSsVP4F4NBFtZt11S7M').addEventListener('mouseover',function(e){e.target.focus()});";
 
         const wrapper = document.createElement("div");
         wrapper.className = "responsive-iframe-wrapper";
 
         const iframe = document.createElement("iframe");
-        iframe.id = "collab-frame-gxDW539THcyqVXwxHgu8V";
-        iframe.src = "https://cloud.chaos.com/collaboration/n/gxDW539THcyqVXwxHgu8V/present?embed";
+        iframe.id = "collab-frame-UBacSsVP4F4NBFtZt11S7M";
+        iframe.src = "https://cloud.chaos.com/collaboration/n/UBacSsVP4F4NBFtZt11S7M/present?embed";
         iframe.allow = "fullscreen; xr-spatial-tracking; accelerometer; gyroscope;";
         iframe.referrerPolicy = "strict-origin";
         iframe.setAttribute("scrolling", "no");
