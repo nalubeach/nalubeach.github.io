@@ -1,8 +1,7 @@
-# Permitir acesso total
 User-agent: *
 Allow: /
 
-# Bloquear ficheiros e pastas técnicas
+Disallow: /pages/
 Disallow: /src/
 Disallow: /videos/
 Disallow: /README.md
@@ -12,5 +11,4 @@ Disallow: /vite.config.js
 Disallow: /tsconfig.json
 Disallow: /bun.lock
 
-# Sitemap principal
 Sitemap: https://www.nalubeachclub.com/sitemap.xml
