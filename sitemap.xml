@@ -1,93 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.nalubeachclub.com/</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
+    <loc>https://www.nalubeachclub.com</loc>
+    <lastmod>2025-05-21</lastmod>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
+    <loc>https://www.nalubeachclub.com/en</loc>
+    <lastmod>2025-05-21</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/menu.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
+    <loc>https://www.nalubeachclub.com/en/allinclusive</loc>
+    <lastmod>2025-05-21</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/politica</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
+    <loc>https://www.nalubeachclub.com/en/contacts</loc>
+    <lastmod>2025-05-21</lastmod>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/index.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/corporate</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/events</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/menu_bar.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/menu</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/menu_cafeteria.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/menu/bar</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/menu_snacks.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/menu/coffee&amp;drinks</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/menu_vinhos.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/menu/snacks</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/menu_privados.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.64</priority>
+    <loc>https://www.nalubeachclub.com/en/menu/vip</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao/mural.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.51</priority>
+    <loc>https://www.nalubeachclub.com/en/menu/wines</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao/nalu.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.51</priority>
+    <loc>https://www.nalubeachclub.com/en/privacy</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/ementa.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.51</priority>
+    <loc>https://www.nalubeachclub.com/pt</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao/ementa/bar.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.41</priority>
+    <loc>https://www.nalubeachclub.com/pt/allinclusive</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao/ementa/cafetaria.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.41</priority>
+    <loc>https://www.nalubeachclub.com/pt/contactos</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao/ementa/snacks.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.41</priority>
+    <loc>https://www.nalubeachclub.com/pt/corporativos</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://www.nalubeachclub.com/pages/allinclusive/audiodescricao/ementa/vinhos.html</loc>
-    <lastmod>2024-12-17T03:11:52+00:00</lastmod>
-    <priority>0.41</priority>
+    <loc>https://www.nalubeachclub.com/pt/eventos</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/menu</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/menu/bar</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/menu/cafetaria</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/menu/privados</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/menu/snacks</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/menu/vinhos</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://www.nalubeachclub.com/pt/privacy</loc>
+    <lastmod>2025-05-21</lastmod>
+    <priority>0.50</priority>
   </url>
 </urlset>
