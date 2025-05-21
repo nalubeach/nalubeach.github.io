@@ -12,13 +12,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Exo 2';
-  src: url('https://ext.same-assets.com/4036669247/1349380707.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Reset & Global Styles */
 *, *::before, *::after {
@@ -78,76 +71,6 @@ img {
   display: block;
 }
 
-
-.newsletter-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  text-align: center;
-  margin-top: 2rem; /* 👈 aqui */
-}
-
-.newsletter-content {
-  width: 100%;
-  max-width: 320px;
-}
-
-.newsletter-content h2 {
-  margin-bottom: 0.8rem;
-  font-size: 1.2rem;
-  color: white;
-}
-
-#newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-#newsletter-form input[type="email"],
-#newsletter-form button {
-  width: 100%;
-  padding: 10px;
-  font-size: 0.9rem;
-  border-radius: 4px;
-  border: none;
-}
-
-#newsletter-form input[type="email"] {
-  background-color: transparent;
-  color: white;
-  border: 1px solid white;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#newsletter-form input[type="email"]::placeholder {
-  color: white;
-  opacity: 0.8;
-}
-
-/* Quando o input está focado */
-#newsletter-form input[type="email"]:focus {
-  background-color: transparent;
-  color: white;
-  outline: none;
-}
-
-#newsletter-form button {
-  padding: 10px 20px;
-  font-weight: 600;
-  background-color: transparent; /* Torna o fundo transparente */
-  border: 2px solid #ffffff; /* Adiciona uma borda branca */
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  color: #ffffff; /* Mantém o texto branco */
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#newsletter-form button:hover {
-  background-color: #ffffffb3;
-}
 .container {
   width: 100%;
   max-width: 1400px;
@@ -256,12 +179,27 @@ h1, h2, h3, h4, h5, h6 {
 .main-nav a {
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .main-nav a:hover {
   color: var(--color-light-tan);
 }
+
+
+.language-switcher-inline a {
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+.language-switcher-inline a:hover {
+  text-decoration: underline;
+}
+
+
 
 /* Esconde o menu hambúrguer em telas grandes */
 .menu-toggle {
@@ -353,6 +291,221 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   margin-top: 2rem;
 }
+
+
+
+/* Events list */
+.events-list {
+  padding: 60px 0;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  justify-content: center;      /* Centraliza os cartões na grid */
+  justify-items: center;        /* Centraliza cada cartão na célula */
+  max-width: 1200px;            /* Ajuste conforme o limite desejado */
+  margin: 0 auto;
+}
+
+.events-grid-livemusic {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.event-card {
+  width: 320px;
+  max-width: 320px;
+  min-width: 320px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 470px; /* ajusta consoante a imagem e conteúdo que queres mostrar */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0; /* evita que encolha */
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.event-card:hover .event-image img {
+  transform: scale(1.05);
+}
+
+.event-date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  line-height: 1;
+}
+
+.event-date .day {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.event-date .month {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.event-date .weekday {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+.event-date .day,
+.event-date .month,
+.event-date .weekday {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.event-details {
+  padding: 6px 10px 8px 10px; /* padding ainda menor */
+  background: white;
+  flex: 1;
+  display: flex;  
+  justify-content: center;   /* centra horizontalmente */
+  align-items: center;       /* centra verticalmente */
+}
+
+.event-details h4 {
+  font-size: 1.2rem; /* título menor */
+  margin-bottom: 6px;
+}
+
+.event-description {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+  font-size: 0.85rem;
+  gap: 5rem; 
+}
+
+/* Buy Ticket Button */
+.btn-buy-ticket {
+  background-color: #2c7079;
+  color: rgb(255, 255, 255);
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  margin-left: auto;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-buy-ticket:hover {
+  background-color: #49b1be;
+  color: white;
+  text-decoration: none;
+}
+
+.pagamento-wrapper {
+  border: 1px solid #000000;
+  padding: 20px;
+  margin-top: 30px;
+  background-color: #ffffff;
+  max-width: 500px;
+  border-radius: 8px;
+  color: black
+}
+  
+
+.event-filter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 6px 16px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: white;
+  color: #2c7079;
+}
+
+
+.our-events {
+  text-align: center;
+  background: #ededed;
+  padding-top: 90px; /* Espaçamento interno superior */
+}
+
+
+.section-title-ourevents {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  color: #2c7079;
+  font-weight: 800;
+}
+
+.section-titleourevents::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  bottom: -15px;
+  left: 0;
+}
+
 
 /* Gallery Section */
 .gallery {
@@ -793,7 +946,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #2c7079;
 }
 
-
 @media (min-width: 1024px) {
   .responsive-iframe-wrapper {
     aspect-ratio: unset;
@@ -962,9 +1114,14 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 0;
     width: max-content;
-    animation: scrollLeft 20s linear infinite;
+    animation: scrollLeft 25s linear infinite;
+    animation-play-state: running;
     touch-action: pan-y;
     will-change: transform;
+  }
+
+  .gallery:hover .gallery-grid {
+    animation-play-state: paused;
   }
 
   .gallery-item {
@@ -987,14 +1144,37 @@ h1, h2, h3, h4, h5, h6 {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-300%);
     }
   }
 }
 
 @media (max-width: 768px) {  
-  .menu-features {
-    grid-template-columns: 1fr;
+  .menu-feature {
+    position: relative;
+    padding: 0;
+    height: auto;
+  }
+
+  .menu-feature img.menu-feature-image {
+    position: static; /* remove posicionamento absoluto */
+    width: 100%;
+    height: auto;      /* deixa a imagem adaptar-se naturalmente */
+    object-fit: contain; /* evita cortes */
+    display: block;
+  }
+
+  .menu-feature-title {
+    position: static;
+    transform: none;
+    margin-top: 0.5rem;
+  }
+  
+  .event-card {
+    width: 280px;
+    max-width: 280px;
+    min-width: auto;
+    height: 400px;
   }
   
   .hero-video-wrapper {
