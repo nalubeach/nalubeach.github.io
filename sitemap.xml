@@ -8,67 +8,67 @@
   <url>
     <loc>https://www.nalubeachclub.com/en</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/allinclusive</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/contacts</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/corporate</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/events</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/menu</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.60</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/menu/bar</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/menu/coffee&amp;drinks</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/menu/snacks</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/menu/vip</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/menu/wines</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/en/privacy</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.30</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/pt</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.80</priority>
+    <priority>0.90</priority>
   </url>
   <url>
     <loc>https://www.nalubeachclub.com/pt/allinclusive</loc>
@@ -123,6 +123,6 @@
   <url>
     <loc>https://www.nalubeachclub.com/pt/privacy</loc>
     <lastmod>2025-05-21</lastmod>
-    <priority>0.50</priority>
+    <priority>0.40</priority>
   </url>
 </urlset>
