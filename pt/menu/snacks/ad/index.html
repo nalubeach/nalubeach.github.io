@@ -92,6 +92,14 @@
 
       wavesurfer.load('../../../../audio/Menu_Snacks.mp3');
 
+        wavesurfer.on('ready', () => {
+    wavesurfer.play().then(() => {
+      playIcon.className = "bi bi-pause-fill";
+    }).catch((err) => {
+      console.warn('Autoplay bloqueado pelo browser:', err);
+    });
+  });
+
       playButton.addEventListener("click", function () {
         if (wavesurfer.isPlaying()) {
           wavesurfer.pause();
