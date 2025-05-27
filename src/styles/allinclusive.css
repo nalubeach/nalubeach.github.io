@@ -188,6 +188,55 @@
     background-color: var(--dark-color);
     transform: scale(1.05);
   }
+
+  .inclusive-links {
+  background-color: #f9f9f9;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.link-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 150px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.link-box:hover {
+  background-color: #49b1be;
+  transform: translateY(-5px);
+}
+
+.mural-bg {
+  background-image: url('/images/mural.webp');
+}
+
+.nalu-bg {
+  background-image: url('/images/nalu.webp');
+}
+
+.muralnalu-bg {
+  background-image: url('/images/nalu.webp');
+}
   
   
   
