@@ -1,5 +1,3 @@
-// Dr. Why Quiz Registration Form JavaScript (versão final compatível com Google Apps Script)
-
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('quizForm');
   const individualRadio = document.getElementById('individual');
@@ -61,25 +59,26 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.innerHTML = 'A processar...';
     submitBtn.disabled = true;
 
-    const formData = {
-      participationType: individualRadio.checked ? 'individual' : 'team',
-      teamName: teamNameInput.value.trim(),
-      numPlayers: teamRadio.checked ? numPlayersSelect.value : '',
-      submittedAt: new Date().toISOString()
-    };
-
     const scriptURL = 'https://script.google.com/macros/s/AKfycbx-ZHqfPLNt0dqLB6q_R919e-dgOYvRQAj2VWoOc3GORpEZGPcnniGm4IrEDjjd62ER/exec';
 
-    const encodedData = new URLSearchParams(formData);
+    const formData = new FormData();
+    formData.append('participationType', individualRadio.checked ? 'individual' : 'team');
+    formData.append('teamName', teamNameInput.value.trim());
+    formData.append('numPlayers', teamRadio.checked ? numPlayersSelect.value : '');
+    formData.append('submittedAt', new Date().toISOString());
 
     fetch(scriptURL, {
       method: 'POST',
-      body: encodedData
+      body: formData
     })
       .then(response => response.json())
       .then(result => {
         if (result.success) {
-          showSuccessMessage(formData);
+          showSuccessMessage({
+            participationType: individualRadio.checked ? 'individual' : 'team',
+            teamName: teamNameInput.value.trim(),
+            numPlayers: teamRadio.checked ? numPlayersSelect.value : ''
+          });
         } else {
           alert('Erro ao submeter o formulário.');
         }
@@ -96,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function showSuccessMessage(data) {
     form.style.display = 'none';
-
     const successContent = document.querySelector('.success-message');
+
     if (data.participationType === 'team') {
       successContent.innerHTML = `
         <h3 style="color:white;">Inscrição Realizada com Sucesso!</h3>
