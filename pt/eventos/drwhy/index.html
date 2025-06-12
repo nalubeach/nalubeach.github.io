@@ -7,7 +7,7 @@
   <title>Nalu Beach Club - Dr. Why</title>
   <meta name="description" content="Consulta a nossa agenda semanal e aproveita cada dia com uma experiência única no Nalu Beach Club.">
   <link rel="stylesheet" href="../../../src/styles/style.css">
-  <link rel="stylesheet" href="../../../src/styles/events.css">
+  <link rel="stylesheet" href="../../../src/styles/drwhy.css">
 
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -27,7 +27,7 @@
       <div class="container">
         <div class="logo">
           <a href="/pt/">
-            <img src="../../images/nalulogowhite.webp" alt="Nalu Logo">
+            <img src="../../../images/nalulogowhite.webp" alt="Nalu Logo">
           </a>
         </div>
         <nav class="main-nav">
@@ -57,59 +57,71 @@
       <div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="event-image">
-                <img src="/images/events/junho/drwhy.webp" alt="Grand Opening">
         </div>
       </div>
     </section>
 
     <main>
 
-      <section id="upcoming" class="events-list">
-        <div class="container" id="eventos">
-          <h3 class="section-title anim-fade-in">Os Nossos Eventos</h3>
-
-        <div class="event-filter">
-          <button onclick="filtrarEventos('all')" class="filter-btn active">Todos</button>
-          <button onclick="filtrarEventos('sunset')" class="filter-btn">Sunset</button>
-          <button onclick="filtrarEventos('night')" class="filter-btn">Noite</button>
-        </div>
-
-          <div class="events-grid">
-            <!-- Event Card 1 -->
-            <div class="event-card anim-slide-up" data-category="sunset night">
-              <div class="event-image">
-                <img src="/images/events/junho/07-06.webp" alt="Grand Opening">
-              </div>
-              <div class="event-details">
-                <div class="event-info">
-                  <span><i class="icon-time"></i> 17:00 - 04:00</span>
-                  <a href="https://3cket.com/en/event/grand-opening-2025-nalu-beach-club" target="_blank" class="btn-buy-ticket">Guest</a>
-                </div>
-              </div>
-            </div>
-
-             <!--Event Card 2-->
-            <div class="event-card anim-slide-up" data-category="sunset">
-              <div class="event-image">
-                <img src="/images/events/junho/08-06.webp" alt="Sunset Sessions">
-              </div>
-              <div class="event-details">
-                <div class="event-info">
-                  <span><i class="icon-time"></i> 17:00</span>
-                  <!--<a href="" target="_blank" class="btn-buy-ticket">Ticket</a> -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       
-      <section class="event-booking">
+
+    <!-- Registration Form Section -->
+    <main>
+      <section class="registration-section">
         <div class="container">
-          <div class="booking-content anim-fade-in">
-            <h3>Mesas / Privados</h3>
-            <a href="https://wa.me/351915159595" class="btn-reservation">Reserva aqui</a>
+          <div class="form-container">
+            <h2>Inscrição DR. WHY</h2>
+
+            <form id="quizForm" class="quiz-form">
+              <!-- Participation Type -->
+              <div class="form-group">
+                <label class="form-label">Tipo de Participação</label>
+                <div class="radio-group">
+                  <div class="radio-option">
+                    <input type="radio" id="individual" name="participationType" value="individual" checked>
+                    <label for="individual">Individual</label>
+                  </div>
+                  <div class="radio-option">
+                    <input type="radio" id="team" name="participationType" value="team">
+                    <label for="team">Equipa</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Number of Players (only for teams) -->
+              <div class="form-group" id="numPlayersGroup" style="display: none;">
+                <label for="numPlayers" class="form-label">Número de Jogadores</label>
+                <select id="numPlayers" name="numPlayers" class="form-input">
+                  <option value="">Seleciona o número de jogadores</option>
+                  <option value="2">2 jogadores</option>
+                  <option value="3">3 jogadores</option>
+                  <option value="4">4 jogadores</option>
+                  <option value="5">5 jogadores</option>
+                  <option value="6">6 jogadores</option>
+                  <option value="7">7 jogadores</option>
+                  <option value="8">8 jogadores</option>
+                  <option value="+9">+9 jogadores</option>
+
+                </select>
+              </div>
+
+              <!-- Team/Player Name -->
+              <div class="form-group">
+                <label for="teamName" class="form-label" id="nameLabel">Nome da Equipa</label>
+                <input type="text" id="teamName" name="teamName" class="form-input" placeholder="Digite o nome da equipa" required>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group">
+                <button type="submit" class="submit-btn">Inscrever-se no Quiz</button>
+              </div>
+            </form>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;">
+              <h3>Inscrição Realizada com Sucesso!</h3>
+              <p>Obrigado pela sua inscrição no Quiz. Vemo-nos no Nalu Beach Club!</p>
+            </div>
           </div>
         </div>
       </section>
@@ -190,7 +202,7 @@
     </main>
 
 <!-- Footer -->
-    <footer class="site-footer">
+        <footer class="site-footer">
       <div class="container">
         <div class="footer-content">
           <div class="footer-intro">
@@ -209,7 +221,8 @@
             <div class="footer-column anim-slide-left">
               <h5>Horário</h5>
               <ul>
-                <li>Fechado temporariamente</li>
+                <li>Domingo 〰 Quinta-Feira<br>11h30 – 00h00</li>
+                <li>Sexta-Feira 〰 Sábado<br>11h30 – 04h00</li>
               </ul>
             </div>
             <div class="footer-column anim-slide-right">
@@ -233,9 +246,8 @@
     </div>
   </div>
 
-  <script type="module" src="../../src/scripts/main.js"></script>
-  <script type="module" src="../../src/scripts/reservation.js"></script>
-  <script type="module" src="../../src/scripts/corporate-calendar.js"></script>
+  <script type="module" src="/src/scripts/main.js"></script>
+  <script type="module" src="/src/scripts/drwhy.js"></script>
   <script src="../../src/scripts/ticket.js"></script>
 
 
