@@ -191,50 +191,51 @@ document.addEventListener('DOMContentLoaded', function () {
     return isValid;
   }
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (!validateForm()) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
-      return;
-    }
-
-    const formData = new FormData(form);
-    const data = new URLSearchParams();
-    for (const pair of formData) {
-      data.append(pair[0], pair[1]);
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'A enviar...';
-
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateForm()) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
       }
-    })
-    .then(res => res.json())
-    .then(json => {
-      if (json.success) {
-        showSuccessMessage({
-          participationType: formData.get("participationType"),
-          teamName: formData.get("teamName"),
-          numPlayers: formData.get("numPlayers") || ''
+
+      const formData = new FormData(form);
+      const data = new URLSearchParams();
+      for (const pair of formData) {
+        data.append(pair[0], pair[1]);
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'A enviar...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+        .then(res => res.json())
+        .then(json => {
+          if (json.status === 'success') {
+            showSuccessMessage({
+              participationType: formData.get("participationType"),
+              teamName: formData.get("teamName"),
+              numPlayers: formData.get("numPlayers") || ''
+            });
+          } else {
+            alert("Erro ao submeter: " + (json.message || "Erro desconhecido"));
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Erro ao enviar os dados.");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
         });
-      } else {
-        alert("Erro ao submeter: " + json.message);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Erro ao enviar os dados.");
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
     });
-  });
+
 
   function showSuccessMessage(data) {
     form.style.display = 'none';
