@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // 🔁 Substituir pela tua URL do Apps Script:
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyWOsWtXJwxqBpiC_KGcpOmMjiCzDCYUJf1UGviuFvan8Qal9eF6Quh0Zyg8p1mMWi4/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx-ZHqfPLNt0dqLB6q_R919e-dgOYvRQAj2VWoOc3GORpEZGPcnniGm4IrEDjjd62ER/exec';
 
     fetch(scriptURL, {
       method: 'POST',
