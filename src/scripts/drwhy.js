@@ -207,34 +207,31 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.disabled = true;
     submitBtn.textContent = 'A enviar...';
 
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then(res => res.json())
-    .then(json => {
-      if (json.success) {
-        showSuccessMessage({
-          participationType: formData.get("participationType"),
-          teamName: formData.get("teamName"),
-          numPlayers: formData.get("numPlayers") || ''
-        });
-      } else {
-        alert("Erro ao submeter: " + json.message);
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      alert("Erro ao enviar os dados.");
-    })
-    .finally(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    });
-  });
+      fetch(form.action, {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.text())
+      .then(text => {
+        if (text.includes("success")) {
+          showSuccessMessage({
+            participationType: formData.get('participationType'),
+            teamName: formData.get('teamName'),
+            numPlayers: formData.get('numPlayers') || ''
+          });
+        } else {
+          alert("Erro ao submeter: " + text);
+        }
+      })
+      .catch(error => {
+        alert("Erro na submissão. Tente novamente.");
+        console.error(error);
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      });
+
 
   function showSuccessMessage(data) {
     form.style.display = 'none';
