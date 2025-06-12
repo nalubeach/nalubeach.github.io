@@ -72,50 +72,50 @@
           <div class="form-container">
             <h2>Inscrição DR. WHY</h2>
 
-            <form id="quizForm" class="quiz-form">
-              <!-- Participation Type -->
-              <div class="form-group">
-                <label class="form-label">Tipo de Participação</label>
-                <div class="radio-group">
-                  <div class="radio-option">
-                    <input type="radio" id="individual" name="participationType" value="individual" checked>
-                    <label for="individual">Individual</label>
-                  </div>
-                  <div class="radio-option">
-                    <input type="radio" id="team" name="participationType" value="team">
-                    <label for="team">Equipa</label>
-                  </div>
+            <form id="quizForm" class="quiz-form" action="https://script.google.com/macros/s/AKfycbx-ZHqfPLNt0dqLB6q_R919e-dgOYvRQAj2VWoOc3GORpEZGPcnniGm4IrEDjjd62ER/exec" method="POST">
+            <!-- Participation Type -->
+            <div class="form-group">
+              <label class="form-label">Tipo de Participação</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="individual" name="participationType" value="individual" checked>
+                  <label for="individual">Individual</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="team" name="participationType" value="team">
+                  <label for="team">Equipa</label>
                 </div>
               </div>
+            </div>
 
-              <!-- Number of Players (only for teams) -->
-              <div class="form-group" id="numPlayersGroup" style="display: none;">
-                <label for="numPlayers" class="form-label">Número de Jogadores</label>
-                <select id="numPlayers" name="numPlayers" class="form-input">
-                  <option value="">Seleciona o número de jogadores</option>
-                  <option value="2">2 jogadores</option>
-                  <option value="3">3 jogadores</option>
-                  <option value="4">4 jogadores</option>
-                  <option value="5">5 jogadores</option>
-                  <option value="6">6 jogadores</option>
-                  <option value="7">7 jogadores</option>
-                  <option value="8">8 jogadores</option>
-                  <option value="+9">+9 jogadores</option>
+            <!-- Number of Players (only for teams) -->
+            <div class="form-group" id="numPlayersGroup" style="display: none;">
+              <label for="numPlayers" class="form-label">Número de Jogadores</label>
+              <select id="numPlayers" name="numPlayers" class="form-input">
+                <option value="">Seleciona o número de jogadores</option>
+                <option value="2">2 jogadores</option>
+                <option value="3">3 jogadores</option>
+                <option value="4">4 jogadores</option>
+                <option value="5">5 jogadores</option>
+                <option value="6">6 jogadores</option>
+                <option value="7">7 jogadores</option>
+                <option value="8">8 jogadores</option>
+                <option value="+9">+9 jogadores</option>
+              </select>
+            </div>
 
-                </select>
-              </div>
+            <!-- Team/Player Name -->
+            <div class="form-group">
+              <label for="teamName" class="form-label" id="nameLabel">Nome da Equipa</label>
+              <input type="text" id="teamName" name="teamName" class="form-input" placeholder="Digite o nome da equipa" required>
+            </div>
 
-              <!-- Team/Player Name -->
-              <div class="form-group">
-                <label for="teamName" class="form-label" id="nameLabel">Nome da Equipa</label>
-                <input type="text" id="teamName" name="teamName" class="form-input" placeholder="Digite o nome da equipa" required>
-              </div>
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button type="submit" class="submit-btn">Inscrever-se no Quiz</button>
+            </div>
+          </form>
 
-              <!-- Submit Button -->
-              <div class="form-group">
-                <button type="submit" class="submit-btn">Inscrever-se no Quiz</button>
-              </div>
-            </form>
 
             <!-- Success Message -->
             <div id="successMessage" class="success-message" style="display: none;">
