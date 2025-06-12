@@ -138,7 +138,9 @@ if (corpForm) {
   });
 }
 
-// --- DRWHY FORM SCRIPT (sem submissão a backend) ---
+// JS CORRIGIDO PARA SUBMETER AO GOOGLE SHEETS COM FORMULÁRIO E APPSCRIPT
+
+// --- DRWHY FORM SCRIPT ---
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('quizForm');
   if (!form) return;
@@ -170,6 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   individualRadio.addEventListener('change', toggleParticipationType);
   teamRadio.addEventListener('change', toggleParticipationType);
+  toggleParticipationType();
 
   function validateForm() {
     let isValid = true;
@@ -195,11 +198,41 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // Simulação de sucesso (sem backend)
-    showSuccessMessage({
-      participationType: individualRadio.checked ? 'individual' : 'team',
-      teamName: teamNameInput.value.trim(),
-      numPlayers: teamRadio.checked ? numPlayersSelect.value : ''
+    const formData = new FormData(form);
+    const data = new URLSearchParams();
+    for (const pair of formData) {
+      data.append(pair[0], pair[1]);
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'A enviar...';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(res => res.json())
+    .then(json => {
+      if (json.success) {
+        showSuccessMessage({
+          participationType: formData.get("participationType"),
+          teamName: formData.get("teamName"),
+          numPlayers: formData.get("numPlayers") || ''
+        });
+      } else {
+        alert("Erro ao submeter: " + json.message);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Erro ao enviar os dados.");
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
     });
   });
 
@@ -222,13 +255,6 @@ document.addEventListener('DOMContentLoaded', function () {
       `;
     }
     successMessage.style.display = 'block';
-    successMessage.style.opacity = '0';
-    successMessage.style.transform = 'translateY(20px)';
-    setTimeout(() => {
-      successMessage.style.transition = 'all 0.5s ease';
-      successMessage.style.opacity = '1';
-      successMessage.style.transform = 'translateY(0)';
-    }, 100);
   }
 
   window.resetForm = function () {
@@ -236,57 +262,5 @@ document.addEventListener('DOMContentLoaded', function () {
     successMessage.style.display = 'none';
     form.reset();
     toggleParticipationType();
-    teamNameInput.style.borderColor = '#2d6b78';
-    numPlayersSelect.style.borderColor = '#2d6b78';
   };
-
-  teamNameInput.addEventListener('input', function () {
-    this.style.borderColor = this.value.trim() ? '#5ca096' : '#2d6b78';
-  });
-  numPlayersSelect.addEventListener('change', function () {
-    this.style.borderColor = this.value ? '#5ca096' : '#2d6b78';
-  });
-
-  toggleParticipationType();
-});
-
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  if (!validateForm()) {
-    alert('Por favor, preencha todos os campos obrigatórios.');
-    return;
-  }
-
-  const formData = new FormData(form);
-  const submitBtn = document.querySelector('.submit-btn');
-  const originalText = submitBtn.textContent;
-  submitBtn.disabled = true;
-  submitBtn.textContent = "A enviar...";
-
-  fetch(form.action, {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.status === "success") {
-      showSuccessMessage({
-        participationType: formData.get("participationType"),
-        teamName: formData.get("teamName"),
-        numPlayers: formData.get("numPlayers") || ""
-      });
-    } else {
-      alert("Erro: " + data.message);
-    }
-  })
-  .catch(error => {
-    alert("Erro na submissão. Tente novamente.");
-    console.error(error);
-  })
-  .finally(() => {
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-  });
 });
