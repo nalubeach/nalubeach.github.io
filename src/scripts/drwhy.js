@@ -249,3 +249,44 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toggleParticipationType();
 });
+
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  if (!validateForm()) {
+    alert('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+
+  const formData = new FormData(form);
+  const submitBtn = document.querySelector('.submit-btn');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "A enviar...";
+
+  fetch(form.action, {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === "success") {
+      showSuccessMessage({
+        participationType: formData.get("participationType"),
+        teamName: formData.get("teamName"),
+        numPlayers: formData.get("numPlayers") || ""
+      });
+    } else {
+      alert("Erro: " + data.message);
+    }
+  })
+  .catch(error => {
+    alert("Erro na submissão. Tente novamente.");
+    console.error(error);
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  });
+});
