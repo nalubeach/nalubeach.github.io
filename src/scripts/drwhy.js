@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const numPlayersGroup = document.getElementById('numPlayersGroup');
   const numPlayersSelect = document.getElementById('numPlayers');
   const teamNameInput = document.getElementById('teamName');
+  const contactInput = document.getElementById('contact');
   const nameLabel = document.getElementById('nameLabel');
   const successMessage = document.getElementById('successMessage');
   const submitBtn = document.querySelector('.submit-btn');
@@ -176,66 +177,80 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function validateForm() {
     let isValid = true;
+
+    // Nome
     if (!teamNameInput.value.trim()) {
       teamNameInput.style.borderColor = '#c15423';
       isValid = false;
     } else {
       teamNameInput.style.borderColor = '#5ca096';
     }
+
+    // Número de jogadores (caso seja equipa)
     if (teamRadio.checked && !numPlayersSelect.value) {
       numPlayersSelect.style.borderColor = '#c15423';
       isValid = false;
     } else if (teamRadio.checked) {
       numPlayersSelect.style.borderColor = '#5ca096';
     }
+
+    // Contacto (número PT válido)
+    const phoneRegex = /^9[1236]\d{7}$/;
+    if (!phoneRegex.test(contactInput.value.trim())) {
+      contactInput.style.borderColor = '#c15423';
+      isValid = false;
+    } else {
+      contactInput.style.borderColor = '#5ca096';
+    }
+
     return isValid;
   }
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!validateForm()) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-        return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validateForm()) {
+      alert('Por favor, preencha todos os campos obrigatórios corretamente.');
+      return;
+    }
+
+    const formData = new FormData(form);
+    const data = new URLSearchParams();
+    for (const pair of formData) {
+      data.append(pair[0], pair[1]);
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'A enviar...';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
-
-      const formData = new FormData(form);
-      const data = new URLSearchParams();
-      for (const pair of formData) {
-        data.append(pair[0], pair[1]);
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'A enviar...';
-
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+    })
+      .then(res => res.json())
+      .then(json => {
+        if (json.status === 'success' || json.success) {
+          showSuccessMessage({
+            participationType: formData.get("participationType"),
+            teamName: formData.get("teamName"),
+            numPlayers: formData.get("numPlayers") || '',
+            contact: formData.get("contact")
+          });
+        } else {
+          alert("Erro ao submeter: " + (json.message || "Erro desconhecido"));
         }
       })
-        .then(res => res.json())
-        .then(json => {
-          if (json.status === 'success') {
-            showSuccessMessage({
-              participationType: formData.get("participationType"),
-              teamName: formData.get("teamName"),
-              numPlayers: formData.get("numPlayers") || ''
-            });
-          } else {
-            alert("Erro ao submeter: " + (json.message || "Erro desconhecido"));
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert("Erro ao enviar os dados.");
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        });
-    });
-
+      .catch(err => {
+        console.error(err);
+        alert("Erro ao enviar os dados.");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      });
+  });
 
   function showSuccessMessage(data) {
     form.style.display = 'none';
@@ -244,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
       successContent.innerHTML = `
         <h3 style="color:white;">Inscrição Realizada com Sucesso!</h3>
         <p>A equipa <strong>${data.teamName}</strong> com <strong>${data.numPlayers} jogadores</strong> foi registada.</p>
+        <p>Contacto: ${data.contact}</p>
         <p>Vemo-nos no Nalu Beach Club!</p>
         <button onclick="resetForm()" class="reset-btn">Nova Inscrição</button>
       `;
@@ -251,6 +267,7 @@ document.addEventListener('DOMContentLoaded', function () {
       successContent.innerHTML = `
         <h3 style="color:white;">Inscrição Realizada com Sucesso!</h3>
         <p><strong>${data.teamName}</strong> foi registado(a) para o Quiz.</p>
+        <p>Contacto: ${data.contact}</p>
         <p>Vemo-nos no Nalu Beach Club!</p>
         <button onclick="resetForm()" class="reset-btn">Nova Inscrição</button>
       `;
@@ -265,3 +282,4 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleParticipationType();
   };
 });
+
