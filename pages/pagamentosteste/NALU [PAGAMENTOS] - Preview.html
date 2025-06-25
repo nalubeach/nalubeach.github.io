@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>NALU Beach Club</title>
+  <link rel="icon" href="logo2.png" type="image/x-png" />
+  <link rel="shortcut icon" href="logo.png" type="image/jpg" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Logo Nalu" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">MENU</a></li>
+        <li><a href="#">EVENTOS</a></li>
+        <li><a href="#">CORPORATIVOS</a></li>
+        <li><a href="#">ALL INCLUSIVE</a></li>
+        <li><a href="#">CONTACTOS</a></li>
+        <li class="language-switcher-inline"><a href="#">EN</a> | <a href="#">PT</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <div class="hero-stack">
+        <h1>Welcome to</h1>
+        <div class="hero-logo">
+          <img src="logo.png" alt="Logo Nalu" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="product-card">
+      <img src="dj.jpg" alt="Pack Sunset Lounge" />
+      <div class="product-content">
+        <h2>Pack Sunset Lounge</h2>
+        <p>Reserve o seu lounge exclusivo para curtir o pôr do sol com estilo.</p>
+        <!-- Botão de Pagamento REDUNIQ Lightbox -->
+        <button id="btnRPG" class="btn rpg-widget-lightbox">
+          GUEST
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const rpgConfig = {
+      language: "pt",
+      closeBtn: true,
+      redirectUrl: "NALU [PAGAMENTOS] - Preview.html" // Página após fechar o Lightbox
+    };
+    const rpgStyle = {
+      modal: {
+        border: "10px solid #008080",
+        borderRadius: "5px",
+        height: "450px",
+        overlay: {
+          backgroundColor: "rgba(255, 255, 255, 0.04)"
+        }
+      }
+    };
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("btnRPG");
+      btn.setAttribute("rpg-config", JSON.stringify(rpgConfig));
+      btn.setAttribute("rpg-style", JSON.stringify(rpgStyle));
+      // ⚠️ Substitui este valor pelo código que a REDUNIQ te der para o teu pedido
+      btn.setAttribute("rpg-url-path", "lightbox/1000000/b5ff2f511c31e03-22c9304cd93f98fd7563326ad7f00ee0");
+
+      btn.addEventListener("click", () => {
+        Reduniq.open(btn);
+      });
+    });
+  </script>
+
+  <!-- Script oficial do Widget REDUNIQ -->
+  <script src="https://pagamentos.reduniq.pt/gateway/assets/widget/lightbox/v1/index.min.js"></script>
+</body>
+</html>

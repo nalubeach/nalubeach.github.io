@@ -1,0 +1,230 @@
+﻿{
+    "method": "initPayment",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "payment": {
+        "amount": 700,
+        "action": 100,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "order" : {
+        "ref": "ref1748700884",
+        "amount": 500,
+        "taxes": 100,
+        "date": "2025-05-31 15:14:44",
+        "shipping": "1"
+    },
+    "buyer": {
+        "email": "john.doe@dummymail.com",
+        "shipping": {
+            "name": "John Doe",
+            "street1": "R. Gen. Firmino Miguel",
+            "city": "Lisboa",
+            "state": "Lisboa",
+            "zipCode": "1600",
+            "country": "pt",
+            "amount": 100
+        }
+    },
+    "mode": "{mode}",
+    "returnUrlOk": "https://pagamentos.reduniq.pt/gateway-documentation/pt/",
+    "returnUrlError": "https://pagamentos.reduniq.pt/gateway-documentation/pt/",
+    "notificationUrl": "https://pagamentos.reduniq.pt/gateway-documentation/pt/",
+    "languageCode": "{languageCode}"
+}
+
+
+
+{
+    "method": "getResult",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "token": "{token}"
+}
+
+
+
+{
+    "method": "doCapture",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "transaction": {
+        "id": "{transactionId}"
+    },
+    "payment": {
+        "amount": 700,
+        "action": 200
+    }
+}
+
+
+
+{
+    "method": "doRefund",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "transaction": {
+        "id": "{transactionId}"
+    },
+    "payment": {
+        "amount": 700,
+        "action": 300
+    },
+    "comment": ""
+}
+
+
+
+{
+    "method": "doVoid",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "transaction": {
+        "id": "{transactionId}"
+    }
+}
+
+
+
+{
+    "method": "createPaymentToken",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "payment": {
+        "solution": "113",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "buyer": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "john.doe@dummymail.com",
+        "phone": "",
+        "billing": {
+            "street1": "R. Gen. Firmino Miguel",
+            "street2": "",
+            "city": "Lisboa",
+            "state": "Lisboa",
+            "zipCode": "1600",
+            "country": "pt"
+        }
+    },
+    "payToken": {
+        "action": 500,
+        "ref": "ref1748700884"
+    },
+    "card": {
+        "number": "4111111111111111",
+        "expMonth": "12",
+        "expYear": "2031",
+        "secCode": "123"
+    }
+}
+
+
+
+{
+    "method": "createRecurringPayment",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "payment": {
+        "amount": "700",
+        "action": "100",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "order": {
+        "ref": "ref1748700884"
+    },
+    "recurring": {
+        "action": "600",
+        "startDate": "2025-05-31",
+        "intervalUnit": "day",
+        "intervalCount": "2"
+    },
+    "payToken": {
+        "id": "{payTokenId}"
+    },
+    "notificationUrl": "https://pagamentos.reduniq.pt/gateway-documentation/pt/",
+    "languageCode": "{languageCode}"
+}
+
+
+
+{
+    "method": "getRecurringPayment",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "recurring": {
+        "id": "{recurringId}",
+        "action": "601"
+    }
+}
+
+
+
+{
+    "method": "disableRecurringPayment",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "recurring": {
+        "id": "{recurringId}",
+        "action": "602"
+    }
+}
+
+
+
+{
+    "method": "doPaymentToken",
+    "api" : {
+        "username": "{apiUsername}",
+        "password": "{apiPassword}"
+    },
+    "payment": {
+        "amount": 700,
+        "action": 100,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "order" : {
+        "ref": "ref1748700884",
+        "amount": 500,
+        "taxes": 100,
+        "date": "2025-05-31 15:14:44",
+        "shipping": "1"
+    },
+    "buyer": {
+        "shipping": {
+            "name": "John Doe",
+            "street1": "R. Gen. Firmino Miguel",
+            "street2": "",
+            "city": "Lisboa",
+            "state": "Lisboa",
+            "zipCode": "1600",
+            "country": "pt",
+            "phone": "",
+            "amount": 100
+        }
+    },
+    "payToken": {
+        "id": "{payTokenId}",
+        "action": 503
+    },
+    "languageCode": "{languageCode}"
+}
