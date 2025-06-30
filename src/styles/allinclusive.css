@@ -237,6 +237,13 @@
 .muralnalu-bg {
   background-image: url('/images/nalu.webp');
 }
+
+.center-wrapper {
+  grid-column: 2 / 3; /* Alinha no meio da grid de 3 colunas */
+  display: flex;
+  justify-content: center;
+}
+
   
   
   
