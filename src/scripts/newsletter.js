@@ -6,14 +6,9 @@ const GAS_ENDPOINT =
 
 // ====== TIMING ======
 const MODAL_SHOW_DELAY_MS = 3000; // atraso para abrir o popup após load
-const SUCCESS_TOAST_MS = 2000;    // duração do toast de sucesso
-const SUCCESS_VISIBLE_MS = 400;  // quanto tempo o cartão de sucesso fica antes de fechar
 
 // ====== LocalStorage keys ======
 const LS_SUBMITTED = "nl_popup_submitted";
-
-// ====== State ======
-let isInSuccess = false; // impede fechar por clique fora / ESC enquanto sucesso está ativo
 
 // ====== Utils ======
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
@@ -38,10 +33,9 @@ function hideModal() {
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
   }
-  isInSuccess = false;
 }
 
-// Toast (flutuante) para erros/avisos
+// Toast (usado apenas para erros/avisos)
 function showToast(msg, type = "ok", ms = 2600) {
   const toastEl = document.getElementById("nl-toast");
   if (!toastEl) return;
@@ -60,31 +54,26 @@ function showToast(msg, type = "ok", ms = 2600) {
   }, ms);
 }
 
-// Troca formulário -> cartão de sucesso
+// Troca formulário -> cartão de sucesso (e mantém modal aberto até o utilizador fechar)
 function showSuccessCard() {
   const form = document.getElementById("nl-form");
   const successEl = document.getElementById("nl-success");
   if (form) form.hidden = true;
   if (successEl) successEl.hidden = false;
-  isInSuccess = true;
 }
 
-// ====== Init ======
 document.addEventListener("DOMContentLoaded", () => {
   // Se não estiver registado, mostra sempre após o delay
   if (!localStorage.getItem(LS_SUBMITTED)) {
     setTimeout(showModal, MODAL_SHOW_DELAY_MS);
   }
 
-  // Fechar pelo X (fecha só nesta visita; volta a aparecer no próximo load)
+  // Fechar pelo X (fecha só nesta visita; se já submeteu, não volta a aparecer)
   document.querySelector(".nl-close")?.addEventListener("click", () => hideModal());
 
-  // Fechar ao clicar fora do cartão — bloqueado enquanto sucesso está ativo
+  // Fechar ao clicar fora do cartão (sempre permitido)
   document.getElementById("nl-modal")?.addEventListener("click", (e) => {
-    if (e.target.id === "nl-modal") {
-      if (isInSuccess) return;
-      hideModal();
-    }
+    if (e.target.id === "nl-modal") hideModal();
   });
 
   // Submissão do formulário
@@ -132,11 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
       // marcou: já subscreveu -> pára de aparecer no futuro
       localStorage.setItem(LS_SUBMITTED, "1");
 
-      showToast("Subscribed!", "ok", SUCCESS_TOAST_MS);
+      // NÃO mostramos toast de sucesso — fica só o cartão
       showSuccessCard();
 
-      // fecha o modal após mostrar sucesso
-      setTimeout(() => hideModal(), SUCCESS_VISIBLE_MS);
+      // Importante: NÃO fechar automaticamente. O utilizador fecha no X, fora ou Esc.
     } catch (err) {
       console.error(err);
       showToast("Something went wrong. Please try again.", "warn", 3600);
@@ -151,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("nl-modal");
   if (!modal) return;
 
-  // Garante IDs para aria-labelledby/aria-describedby
   function ensureId(el, fallbackId) {
     if (!el) return null;
     if (!el.id) el.id = fallbackId;
@@ -176,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.setAttribute("role", "dialog");
     if (titleId) modal.setAttribute("aria-labelledby", titleId);
     if (descId) modal.setAttribute("aria-describedby", descId);
-    // foca 1º foco válido
     const f = getFocusable();
     if (f.length) f[0].focus();
   }
@@ -201,10 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModalA11y();
   };
 
-  // Trap de foco e tecla ESC
+  // Trap de foco e tecla ESC (permite fechar sempre)
   modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      if (!isInSuccess) hideModal(); // evita fechar durante “sucesso”
+      hideModal();
       return;
     }
     if (e.key !== "Tab") return;
