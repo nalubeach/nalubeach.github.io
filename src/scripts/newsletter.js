@@ -35,7 +35,7 @@ function hideModal() {
   }
 }
 
-// Toast (usado apenas para erros/avisos)
+// Toast (usado só para erros/avisos)
 function showToast(msg, type = "ok", ms = 2600) {
   const toastEl = document.getElementById("nl-toast");
   if (!toastEl) return;
@@ -54,12 +54,39 @@ function showToast(msg, type = "ok", ms = 2600) {
   }, ms);
 }
 
-// Troca formulário -> cartão de sucesso (e mantém modal aberto até o utilizador fechar)
+// Mostra apenas o cartão de sucesso e esconde o resto
 function showSuccessCard() {
-  const form = document.getElementById("nl-form");
+  const right = document.querySelector(".nl-right");
   const successEl = document.getElementById("nl-success");
-  if (form) form.hidden = true;
-  if (successEl) successEl.hidden = false;
+
+  // Esconde TODOS os irmãos (título, textos, form, etc.) excepto #nl-success e #nl-toast
+  if (right) {
+    Array.from(right.children).forEach((ch) => {
+      if (ch.id !== "nl-success" && ch.id !== "nl-toast") ch.hidden = true;
+    });
+    right.classList.add("success-state"); // para estilos (fundo escuro + texto branco)
+  }
+
+  if (successEl) {
+    // Força os 3 textos exatamente como pediste
+    const h3 = successEl.querySelector("h3") || document.createElement("h3");
+    const p1 = successEl.querySelector("p:nth-of-type(1)") || document.createElement("p");
+    const p2 = successEl.querySelector("p:nth-of-type(2)") || document.createElement("p");
+
+    h3.textContent = "You're in!";
+    p1.textContent = "Thanks for subscribing — we'll be in touch soon.";
+    // sol monocromático (unicode) e deixamos o CSS controlar a cor
+    p2.innerHTML = 'See you in Summer 2026 <span class="sun" aria-hidden="true">☀</span>';
+
+    successEl.innerHTML = ""; // limpa qualquer markup anterior
+    successEl.appendChild(h3);
+    successEl.appendChild(p1);
+    successEl.appendChild(p2);
+
+    // Centro total + tipografia branca
+    successEl.classList.add("nl-success-centered");
+    successEl.hidden = false;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -68,10 +95,10 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(showModal, MODAL_SHOW_DELAY_MS);
   }
 
-  // Fechar pelo X (fecha só nesta visita; se já submeteu, não volta a aparecer)
+  // Fechar pelo X
   document.querySelector(".nl-close")?.addEventListener("click", () => hideModal());
 
-  // Fechar ao clicar fora do cartão (sempre permitido)
+  // Fechar ao clicar fora do cartão
   document.getElementById("nl-modal")?.addEventListener("click", (e) => {
     if (e.target.id === "nl-modal") hideModal();
   });
@@ -121,10 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // marcou: já subscreveu -> pára de aparecer no futuro
       localStorage.setItem(LS_SUBMITTED, "1");
 
-      // NÃO mostramos toast de sucesso — fica só o cartão
+      // MOSTRA só o cartão de sucesso (sem fechar e sem toast de sucesso)
       showSuccessCard();
-
-      // Importante: NÃO fechar automaticamente. O utilizador fecha no X, fora ou Esc.
     } catch (err) {
       console.error(err);
       showToast("Something went wrong. Please try again.", "warn", 3600);
@@ -187,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModalA11y();
   };
 
-  // Trap de foco e tecla ESC (permite fechar sempre)
+  // Trap de foco e tecla ESC
   modal.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       hideModal();
