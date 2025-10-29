@@ -3,9 +3,17 @@
 // ====== CONFIG ======
 const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzi7q4JEtEiaufAqtd4qGhS6RO_Ya872fei0O-r1qzuEKYj_We31kHCXGhm9VF57GGF/exec";
 
+// ====== TIMING (ajusta à vontade) ======
+const MODAL_SHOW_DELAY_MS = 3000;     // atraso para abrir o popup após load
+const SUCCESS_TOAST_MS    = 2000;     // quanto tempo o toast “Subscribed!” fica visível
+const SUCCESS_VISIBLE_MS  = 5000;     // quanto tempo o cartão de sucesso fica visível antes de fechar o modal
+
 // ====== LocalStorage keys ======
-const LS_CLOSED = "nl_popup_closed";
+const LS_CLOSED    = "nl_popup_closed";
 const LS_SUBMITTED = "nl_popup_submitted";
+
+// ====== State ======
+let isInSuccess = false; // impede fechar por clique fora enquanto sucesso está no ar
 
 // ====== Utils ======
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
@@ -31,6 +39,8 @@ function hideModal(persistClose = true) {
     document.body.style.overflow = "";
   }
   if (persistClose) localStorage.setItem(LS_CLOSED, "1");
+  // reset flag
+  isInSuccess = false;
 }
 
 // Toast (flutuante) para erros/avisos
@@ -58,19 +68,23 @@ function showSuccessCard() {
   const successEl = document.getElementById("nl-success");
   if (form) form.hidden = true;
   if (successEl) successEl.hidden = false;
+  isInSuccess = true;
 }
 
 // ====== Init ======
 document.addEventListener("DOMContentLoaded", () => {
-  // Mostrar popup 3s após carregar
-  setTimeout(showModal, 3000);
+  // Mostrar popup após delay
+  setTimeout(showModal, MODAL_SHOW_DELAY_MS);
 
-  // Fechar pelo X
+  // Fechar pelo X (continua permitido mesmo em sucesso)
   document.querySelector(".nl-close")?.addEventListener("click", () => hideModal(true));
 
-  // Fechar ao clicar fora do cartão
+  // Fechar ao clicar fora do cartão — bloqueado enquanto sucesso está ativo
   document.getElementById("nl-modal")?.addEventListener("click", (e) => {
-    if (e.target.id === "nl-modal") hideModal(true);
+    if (e.target.id === "nl-modal") {
+      if (isInSuccess) return; // durante sucesso, ignora clique fora
+      hideModal(true);
+    }
   });
 
   // Submissão do formulário
@@ -83,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hp && hp.value.trim() !== "") return;
 
     const emailInput = document.getElementById("nl-email");
-    const consentEl = document.getElementById("nl-consent");
-    const submitBtn = form.querySelector(".nl-submit");
+    const consentEl  = document.getElementById("nl-consent");
+    const submitBtn  = form.querySelector(".nl-submit");
 
-    const email = (emailInput?.value || "").trim().toLowerCase();
+    const email   = (emailInput?.value || "").trim().toLowerCase();
     const consent = consentEl?.checked ? "yes" : "no";
 
     // validação elegante
@@ -120,14 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem(LS_SUBMITTED, "1");
 
       // feedback visual
-      showToast("Subscribed! Welcome aboard ✨", "ok", 1800);
+      showToast("Subscribed!", "ok", SUCCESS_TOAST_MS);
       showSuccessCard();
 
-      // fechar depois de um momento (opcional)
-      setTimeout(() => hideModal(false), 1200);
+      // fechar depois de um momento (mais longo)
+      setTimeout(() => hideModal(false), SUCCESS_VISIBLE_MS);
     } catch (err) {
       console.error(err);
-      showToast("Something went wrong. Please try again.", "warn");
+      showToast("Something went wrong. Please try again.", "warn", 3600);
     } finally {
       if (submitBtn) submitBtn.disabled = false;
     }
