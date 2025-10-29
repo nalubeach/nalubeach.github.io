@@ -3,43 +3,42 @@
 // ====== CONFIG ======
 const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzi7q4JEtEiaufAqtd4qGhS6RO_Ya872fei0O-r1qzuEKYj_We31kHCXGhm9VF57GGF/exec";
 
-// ====== TIMING (ajusta à vontade) ======
+// ====== TIMING ======
 const MODAL_SHOW_DELAY_MS = 3000;     // atraso para abrir o popup após load
-const SUCCESS_TOAST_MS    = 2000;     // quanto tempo o toast “Subscribed!” fica visível
-const SUCCESS_VISIBLE_MS  = 5000;     // quanto tempo o cartão de sucesso fica visível antes de fechar o modal
+const SUCCESS_TOAST_MS    = 2000;     // duração do toast de sucesso
+const SUCCESS_VISIBLE_MS  = 5000;     // quanto tempo o cartão de sucesso fica antes de fechar
 
 // ====== LocalStorage keys ======
-const LS_CLOSED    = "nl_popup_closed";
+// const LS_CLOSED = "nl_popup_closed"; // NÃO usamos mais
 const LS_SUBMITTED = "nl_popup_submitted";
 
 // ====== State ======
-let isInSuccess = false; // impede fechar por clique fora enquanto sucesso está no ar
+let isInSuccess = false; // impede fechar por clique fora enquanto sucesso está ativo
 
 // ====== Utils ======
 const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 
 function showModal() {
-  if (localStorage.getItem(LS_CLOSED) || localStorage.getItem(LS_SUBMITTED)) return;
+  // Só NÃO mostra se já estiver registado
+  if (localStorage.getItem(LS_SUBMITTED)) return;
+
   const modal = document.getElementById("nl-modal");
   if (modal) {
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    // foca no campo de email se existir
     const emailInput = document.getElementById("nl-email");
     if (emailInput) setTimeout(() => emailInput.focus(), 50);
   }
 }
 
-function hideModal(persistClose = true) {
+function hideModal() {
   const modal = document.getElementById("nl-modal");
   if (modal) {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
   }
-  if (persistClose) localStorage.setItem(LS_CLOSED, "1");
-  // reset flag
   isInSuccess = false;
 }
 
@@ -51,7 +50,7 @@ function showToast(msg, type = "ok", ms = 2600) {
   toastEl.classList.remove("ok", "warn");
   toastEl.classList.add(type);
   toastEl.hidden = false;
-  // pequena reflow para garantir transição
+  // reflow p/ transição
   // eslint-disable-next-line no-unused-expressions
   toastEl.offsetHeight;
   toastEl.classList.add("show");
@@ -62,7 +61,7 @@ function showToast(msg, type = "ok", ms = 2600) {
   }, ms);
 }
 
-// Troca formulário -> cartão de sucesso (sem empurrar layout)
+// Troca formulário -> cartão de sucesso
 function showSuccessCard() {
   const form = document.getElementById("nl-form");
   const successEl = document.getElementById("nl-success");
@@ -73,17 +72,19 @@ function showSuccessCard() {
 
 // ====== Init ======
 document.addEventListener("DOMContentLoaded", () => {
-  // Mostrar popup após delay
-  setTimeout(showModal, MODAL_SHOW_DELAY_MS);
+  // Se já está registado, nem arma o timeout; caso contrário, mostra sempre
+  if (!localStorage.getItem(LS_SUBMITTED)) {
+    setTimeout(showModal, MODAL_SHOW_DELAY_MS);
+  }
 
-  // Fechar pelo X (continua permitido mesmo em sucesso)
-  document.querySelector(".nl-close")?.addEventListener("click", () => hideModal(true));
+  // Fechar pelo X (fecha só nesta sessão/visita; volta a aparecer no próximo load)
+  document.querySelector(".nl-close")?.addEventListener("click", () => hideModal());
 
   // Fechar ao clicar fora do cartão — bloqueado enquanto sucesso está ativo
   document.getElementById("nl-modal")?.addEventListener("click", (e) => {
     if (e.target.id === "nl-modal") {
-      if (isInSuccess) return; // durante sucesso, ignora clique fora
-      hideModal(true);
+      if (isInSuccess) return; // ignora clique fora durante sucesso
+      hideModal();
     }
   });
 
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // honeypot (anti-bot): campo escondido "website"
+    // honeypot
     const hp = form.querySelector('input[name="website"]');
     if (hp && hp.value.trim() !== "") return;
 
@@ -103,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const email   = (emailInput?.value || "").trim().toLowerCase();
     const consent = consentEl?.checked ? "yes" : "no";
 
-    // validação elegante
     if (!validEmail(email)) {
       showToast("Hmm, that email doesn’t look right. Try again?", "warn");
       emailInput?.focus();
@@ -130,15 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || "request_failed");
 
-      // marcar que já subscreveu
+      // marcou: já subscreveu -> pára de aparecer no futuro
       localStorage.setItem(LS_SUBMITTED, "1");
 
-      // feedback visual
       showToast("Subscribed!", "ok", SUCCESS_TOAST_MS);
       showSuccessCard();
 
-      // fechar depois de um momento (mais longo)
-      setTimeout(() => hideModal(false), SUCCESS_VISIBLE_MS);
+      // fecha o modal (não precisamos persistir “fechado”)
+      setTimeout(() => hideModal(), SUCCESS_VISIBLE_MS);
     } catch (err) {
       console.error(err);
       showToast("Something went wrong. Please try again.", "warn", 3600);
