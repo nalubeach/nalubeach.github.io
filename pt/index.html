@@ -226,44 +226,77 @@
     </footer>
   </div>
  
+
+
+
   <!-- Popup Newsletter -->
-  <div id="nl-modal" class="custom-modal" aria-hidden="true" role="dialog">
-    <div class="nl-card" role="document">
-      <button class="nl-close" aria-label="Fechar">✕</button>
+    <div id="nl-modal" class="custom-modal" aria-hidden="true" role="dialog">
+      <div class="nl-card" role="document">
+        <!-- Botão fechar -->
+        <button class="nl-close" aria-label="Fechar">✕</button>
 
-      <div class="nl-split">
-        <div class="nl-left">
-          <img src="/images/popup1.webp" alt="Nalu">
-        </div>
+        <!-- Conteúdo dividido -->
+        <div class="nl-split">
+          <!-- Lado esquerdo: imagem -->
+          <div class="nl-left">
+            <img src="/images/popup3.webp" alt="Nalu at sunset">
+          </div>
 
-        <div class="nl-right">
-          <h2 class="nl-title">We will be back soon!</h2>
-          <p class="nl-strong">Thank you for an incredible season in 2025!</p>
-          <p>Subscribe to our newsletter to be the first to get notified when we’re back.</p>
-          <p>See you in Summer 2026!</p>
+          <!-- Lado direito: texto e formulário -->
+          <div class="nl-right">
+            <h2 class="nl-title">We will be back soon!</h2>
+            <p class="nl-strong">Thank you for an incredible season in 2025!</p>
+            <p>Subscribe to our newsletter to be the first to get notified when we’re back.</p>
+            <p>See you in Summer 2026!</p>
 
-          <!-- Campo de email visível logo -->
-          <form id="nl-form" class="nl-form" novalidate>
-            <!-- Honeypot anti-spam -->
-            <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
-            
-            <label for="nl-email" class="nl-label">Email</label>
-            <input id="nl-email" name="email" type="email" placeholder="your@email.com" required>
-            
-            <label class="nl-consent">
-              <input type="checkbox" id="nl-consent" checked>
-              I agree to be contacted about Nalu Beach Club news & events.
-            </label>
+            <!-- Formulário -->
+            <form id="nl-form" class="nl-form" novalidate>
+              <!-- Honeypot anti-spam -->
+              <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                style="position:absolute;left:-9999px"
+                aria-hidden="true"
+              >
 
-            <button class="nl-submit" type="submit">Subscribe</button>
-            <small class="nl-privacy">By subscribing you accept our <a href="/pt/privacy/">Privacy Policy</a>.</small>
-            <p id="nl-msg" class="nl-msg" hidden></p>
-          </form>
+              <label for="nl-email" class="nl-label">Email</label>
+              <input
+                id="nl-email"
+                name="email"
+                type="email"
+                placeholder="your@email.com"
+                required
+              >
+
+              <label class="nl-consent">
+                <input type="checkbox" id="nl-consent" checked>
+                I agree to be contacted about Nalu Beach Club news & events.
+              </label>
+
+              <button class="nl-submit" type="submit">Subscribe</button>
+              <small class="nl-privacy">
+                By subscribing you accept our
+                <a href="/pt/privacy/">Privacy Policy</a>.
+              </small>
+            </form>
+
+            <!-- Cartão de sucesso (inicialmente escondido) -->
+            <div id="nl-success" class="nl-success" hidden>
+              <h3>You're in!</h3>
+              <p>Thanks for subscribing — we'll be in touch soon.</p>
+              <p class="nl-success-note">See you in Summer 2026 ☀️</p>
+            </div>
+
+            <!-- Toast flutuante -->
+            <div id="nl-toast" class="nl-toast" aria-live="polite" hidden></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
+  
 
   <!-- Script do popup -->
   <script type="module" src="/src/scripts/newsletter.js"></script>

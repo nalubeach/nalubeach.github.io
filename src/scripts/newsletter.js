@@ -1,51 +1,104 @@
+// /src/scripts/newsletter.js
+
 // ====== CONFIG ======
 const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzi7q4JEtEiaufAqtd4qGhS6RO_Ya872fei0O-r1qzuEKYj_We31kHCXGhm9VF57GGF/exec";
 
-// ====== Helpers ======
+// ====== LocalStorage keys ======
 const LS_CLOSED = "nl_popup_closed";
 const LS_SUBMITTED = "nl_popup_submitted";
 
-function show() {
+// ====== Utils ======
+const validEmail = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+
+function showModal() {
   if (localStorage.getItem(LS_CLOSED) || localStorage.getItem(LS_SUBMITTED)) return;
-  const m = document.getElementById("nl-modal");
-  if (m) { m.classList.add("active"); m.setAttribute("aria-hidden","false"); document.body.style.overflow = "hidden"; }
+  const modal = document.getElementById("nl-modal");
+  if (modal) {
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    // foca no campo de email se existir
+    const emailInput = document.getElementById("nl-email");
+    if (emailInput) setTimeout(() => emailInput.focus(), 50);
+  }
 }
-function hide(persist=true){
-  const m = document.getElementById("nl-modal");
-  if (m) { m.classList.remove("active"); m.setAttribute("aria-hidden","true"); document.body.style.overflow = ""; }
-  if (persist) localStorage.setItem(LS_CLOSED,"1");
+
+function hideModal(persistClose = true) {
+  const modal = document.getElementById("nl-modal");
+  if (modal) {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+  if (persistClose) localStorage.setItem(LS_CLOSED, "1");
 }
-const validEmail = e => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
+
+// Toast (flutuante) para erros/avisos
+function showToast(msg, type = "ok", ms = 2600) {
+  const toastEl = document.getElementById("nl-toast");
+  if (!toastEl) return;
+  toastEl.textContent = msg;
+  toastEl.classList.remove("ok", "warn");
+  toastEl.classList.add(type);
+  toastEl.hidden = false;
+  // pequena reflow para garantir transição
+  // eslint-disable-next-line no-unused-expressions
+  toastEl.offsetHeight;
+  toastEl.classList.add("show");
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => {
+    toastEl.classList.remove("show");
+    setTimeout(() => (toastEl.hidden = true), 250);
+  }, ms);
+}
+
+// Troca formulário -> cartão de sucesso (sem empurrar layout)
+function showSuccessCard() {
+  const form = document.getElementById("nl-form");
+  const successEl = document.getElementById("nl-success");
+  if (form) form.hidden = true;
+  if (successEl) successEl.hidden = false;
+}
 
 // ====== Init ======
 document.addEventListener("DOMContentLoaded", () => {
-  // Mostra ao fim de 3s
-  setTimeout(show, 3000);
+  // Mostrar popup 3s após carregar
+  setTimeout(showModal, 3000);
 
-  // Fechar
-  document.querySelector(".nl-close")?.addEventListener("click", () => hide(true));
+  // Fechar pelo X
+  document.querySelector(".nl-close")?.addEventListener("click", () => hideModal(true));
+
+  // Fechar ao clicar fora do cartão
   document.getElementById("nl-modal")?.addEventListener("click", (e) => {
-    if (e.target.id === "nl-modal") hide(true);
+    if (e.target.id === "nl-modal") hideModal(true);
   });
 
-  // Submit
+  // Submissão do formulário
   const form = document.getElementById("nl-form");
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // honeypot (anti-bot): campo escondido "website"
     const hp = form.querySelector('input[name="website"]');
-    if (hp && hp.value.trim() !== "") return; // bot
+    if (hp && hp.value.trim() !== "") return;
 
-    const email = document.getElementById("nl-email").value.trim().toLowerCase();
-    const consent = document.getElementById("nl-consent").checked ? "yes" : "no";
-    const msg = document.getElementById("nl-msg");
+    const emailInput = document.getElementById("nl-email");
+    const consentEl = document.getElementById("nl-consent");
+    const submitBtn = form.querySelector(".nl-submit");
 
+    const email = (emailInput?.value || "").trim().toLowerCase();
+    const consent = consentEl?.checked ? "yes" : "no";
+
+    // validação elegante
     if (!validEmail(email)) {
-      msg.hidden = false; msg.textContent = "Verifica o email, por favor."; msg.style.color = "#b91c1c";
+      showToast("Hmm, that email doesn’t look right. Try again?", "warn");
+      emailInput?.focus();
       return;
     }
 
     try {
-      // Envio para Google Apps Script (Sheets)
+      if (submitBtn) submitBtn.disabled = true;
+
       const payload = new URLSearchParams({
         email,
         source: location.pathname || "/",
@@ -60,16 +113,23 @@ document.addEventListener("DOMContentLoaded", () => {
         body: payload
       });
 
-      const data = await res.json().catch(()=>({}));
+      const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.ok) throw new Error(data.error || "request_failed");
 
-      localStorage.setItem(LS_SUBMITTED,"1");
-      msg.hidden = false; msg.textContent = "Obrigado! Iremos avisar-te."; msg.style.color = "#065f46";
-      setTimeout(()=> hide(false), 1200);
+      // marcar que já subscreveu
+      localStorage.setItem(LS_SUBMITTED, "1");
 
+      // feedback visual
+      showToast("Subscribed! Welcome aboard ✨", "ok", 1800);
+      showSuccessCard();
+
+      // fechar depois de um momento (opcional)
+      setTimeout(() => hideModal(false), 1200);
     } catch (err) {
       console.error(err);
-      msg.hidden = false; msg.textContent = "Ups! Tenta novamente em instantes."; msg.style.color = "#b91c1c";
+      showToast("Something went wrong. Please try again.", "warn");
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
   });
 });
