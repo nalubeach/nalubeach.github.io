@@ -1277,3 +1277,51 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
+
+
+/* ===== Newsletter Popup (split) ===== */
+#nl-modal.custom-modal { display:none; }
+#nl-modal.active { display:flex; }
+
+.nl-card{
+  background:#fff;
+  color:#111;
+  max-width:860px;
+  width:92vw;
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+.nl-close{
+  position:absolute; top:12px; right:12px;
+  background:#fff; border:1px solid #e5e7eb; width:36px; height:36px;
+  border-radius:6px; cursor:pointer; font-size:18px; line-height:0;
+}
+.nl-split{ display:grid; grid-template-columns: 1.1fr 1fr; min-height:420px; }
+.nl-left img{ width:100%; height:100%; object-fit:cover; display:block; }
+.nl-right{ padding:36px 36px 28px; display:flex; flex-direction:column; gap:10px; }
+
+.nl-title{ font-size:32px; line-height:1.1; margin:0 0 6px; font-weight:800; color:#111; }
+.nl-strong{ font-weight:700; color:#111; }
+
+.nl-btn, .nl-submit{
+  background:#111; color:#fff; border:0; padding:12px 20px;
+  border-radius:6px; cursor:pointer; font-weight:700;
+}
+.nl-btn:hover, .nl-submit:hover{ opacity:.9; }
+
+.nl-form{ display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+.nl-label{ font-weight:700; font-size:14px; }
+#nl-email{
+  padding:10px 12px; border:1px solid #e5e7eb; border-radius:8px; font-size:16px; color:#111;
+}
+.nl-consent{ font-size:13px; color:#333; display:flex; align-items:center; gap:8px; }
+.nl-privacy{ color:#666; }
+.nl-msg{ font-weight:700; margin-top:4px; }
+
+@media (max-width: 900px){
+  .nl-split{ grid-template-columns: 1fr; }
+  .nl-left{ display:none; }
+}
