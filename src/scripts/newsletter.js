@@ -74,9 +74,9 @@ function showSuccessCard() {
     const p2 = successEl.querySelector("p:nth-of-type(2)") || document.createElement("p");
 
     h3.textContent = "You're in!";
-    p1.textContent = "Thanks for subscribing — we'll be in touch soon.";
+    p1.textContent = "Thanks for subscribing . we'll be in touch soon.";
     // sol monocromático (unicode) e deixamos o CSS controlar a cor
-    p2.innerHTML = 'See you in Summer 2026 <span class="sun" aria-hidden="true">☀</span>';
+    p2.innerHTML = 'See you in Summer 2026 <span class="wave" aria-hidden="true">〰</span>';
 
     successEl.innerHTML = ""; // limpa qualquer markup anterior
     successEl.appendChild(h3);
